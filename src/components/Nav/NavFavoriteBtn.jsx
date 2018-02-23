@@ -13,10 +13,9 @@ const Btn = styled.button`
   border: none;
   box-shadow: rgba(23, 43, 99, 0.26) 0 7px 42px;
   color: #fff;
-  text-transform: uppercase;
   border-radius: 5px;
   letter-spacing: 0.5px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: bold;
 
   &:hover {
