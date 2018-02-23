@@ -1,3 +1,5 @@
+import styled, { css } from 'styled-components';
+
 const sizes = {
   desktop: 992,
   tablet: 768,
@@ -13,3 +15,5 @@ const media = Object.keys(sizes).reduce((acc, label) => {
 
   return acc;
 }, {});
+
+export { media };
