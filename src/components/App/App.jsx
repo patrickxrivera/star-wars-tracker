@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled, { injectGlobal } from 'styled-components';
 import Nav from '../Nav/Nav.jsx';
+import Home from '../Home/Home.jsx';
 
 injectGlobal`
   body {
@@ -16,6 +17,7 @@ function App() {
   return (
     <div>
       <Nav />
+      <Home />
     </div>
   );
 }
