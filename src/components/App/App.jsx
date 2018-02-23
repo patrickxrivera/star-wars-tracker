@@ -7,7 +7,7 @@ injectGlobal`
   body {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue,
       sans-serif;
-    background-color: #4d4566;
+    background-color: #303050;
     color: #fff;
     margin-top: 1rem;
   }

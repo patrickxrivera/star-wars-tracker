@@ -10,7 +10,7 @@ const Container = styled.div`
 const Header = styled.div`
   font-size: 1.25rem;
   font-weight: bold;
-  color: hsl(255, 50%, 85%);
+  color: hsla(240, 25%, 83%, 1);
 `;
 
 function Title() {
