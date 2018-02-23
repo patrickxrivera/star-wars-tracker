@@ -7,8 +7,8 @@ const Btn = styled.button`
   align-items: center;
   justify-content: center;
   z-index: 100;
-  width: 160px;
-  height: 50px;
+  width: 145px;
+  height: 44px;
   background: linear-gradient(to left, #da4453, #89216b);
   border: none;
   box-shadow: rgba(23, 43, 99, 0.26) 0 7px 42px;
@@ -18,12 +18,21 @@ const Btn = styled.button`
   letter-spacing: 0.5px;
   font-size: 11px;
   font-weight: bold;
+
+  &:hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: 0;
+  }
 `;
 
 const SmallHeart = styled(Heart)`
   width: 13px;
   height: 13px;
-  padding: 0 3px;
+  padding: 0 4px;
 `;
 
 function NavFavoriteBtn() {
