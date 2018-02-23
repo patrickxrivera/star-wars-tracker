@@ -4,12 +4,12 @@ import { User, Chrome, Send } from 'react-feather';
 
 const Container = styled.div`
   margin: 120px auto 0;
-  border: 2px solid red;
   display: flex;
   flex-direction: column;
+  padding-right: 3.8rem;
 `;
 
-const Title = styled.div`
+const Title = styled.span`
   font-size: 3rem;
   text-align: center;
 `;
@@ -18,8 +18,7 @@ const CategoriesContainer = styled.div`
   display: flex;
   flex: 1;
   justify-content: center;
-  margin-top: 3rem;
-  border: 2px solid red;
+  margin-top: 4rem;
 `;
 
 const Category = styled.div`
@@ -28,7 +27,6 @@ const Category = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 2rem;
-  border: 2px solid red;
 `;
 
 class Home extends Component {
