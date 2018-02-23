@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Heart } from 'react-feather';
 
 const Btn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 100;
-  width: 139px;
+  width: 160px;
   height: 50px;
   background: linear-gradient(to left, #da4453, #89216b);
   border: none;
@@ -16,8 +20,18 @@ const Btn = styled.button`
   font-weight: bold;
 `;
 
+const SmallHeart = styled(Heart)`
+  width: 13px;
+  height: 13px;
+  padding: 0 3px;
+`;
+
 function NavFavoriteBtn() {
-  return <Btn>See Favorites (0)</Btn>;
+  return (
+    <Btn>
+      See Favorites <SmallHeart /> (0)
+    </Btn>
+  );
 }
 
 export default NavFavoriteBtn;
