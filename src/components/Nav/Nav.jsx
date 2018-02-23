@@ -7,8 +7,8 @@ import NavFavoriteBtn from './NavFavoriteBtn.jsx';
 
 const Container = styled.div`
   display: flex;
-  border: 2px solid red;
   justify-content: space-between;
+  align-items: center;
   margin: 0 auto;
   width: 90%;
 
