@@ -1,13 +1,26 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { injectGlobal } from 'styled-components';
+import
 
-const Container = styled.div`
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue,
-    sans-serif;
+injectGlobal`
+  @font-face {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue,
+      sans-serif;
+    color: #fff;
+  }
+
+  body {
+    background-color: #4d4566;
+  }
 `;
 
 function App() {
-  return <Container>Hello world!</Container>;
+  return (
+    <div>
+      <Nav />
+      {/* <Home /> */}
+    </div>
+  );
 }
 
 export default App;
