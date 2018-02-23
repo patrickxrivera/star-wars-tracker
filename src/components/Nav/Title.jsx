@@ -10,19 +10,13 @@ const Container = styled.div`
 const Header = styled.div`
   font-size: 1.25rem;
   font-weight: bold;
-`;
-
-const Subscript = styled.div`
-  font-size: 1.25rem;
-  margin-top: 0.3rem;
   color: hsl(255, 50%, 85%);
 `;
 
 function Title() {
   return (
     <Container>
-      <Header>Star Wars Tracker</Header>
-      <Subscript>The API Strikes Back</Subscript>
+      <Header>The API Strikes Back</Header>
     </Container>
   );
 }
