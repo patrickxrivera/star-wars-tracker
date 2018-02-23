@@ -60,10 +60,6 @@ const CategoryName = styled.span`
   margin-top: 0.6rem;
 `;
 
-// create a reusable style for home icons (width and height)
-// create CategoryName component and add margin-top of 0.6rem
-// loop through components to limit repetitiveness
-
 class Home extends Component {
   render() {
     const categories = getCategories();
