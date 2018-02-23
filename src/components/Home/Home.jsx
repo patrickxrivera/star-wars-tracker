@@ -2,6 +2,31 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { User, Chrome, Send } from 'react-feather';
 
+const getCategories = () => {
+  const icons = {
+    People: User,
+    Planets: Chrome,
+    Vehicles: Send
+  };
+
+  const categories = Object.keys(icons).map((categoryName) => {
+    const Icon = icons[categoryName];
+    const categoryJSX = createJSXFor(Icon, categoryName);
+    return categoryJSX;
+  });
+
+  return categories;
+};
+
+const createJSXFor = (Icon, categoryName) => {
+  return (
+    <Category>
+      <Icon />
+      <CategoryName>{categoryName}</CategoryName>
+    </Category>
+  );
+};
+
 const Container = styled.div`
   margin: 120px auto 0;
   display: flex;
@@ -27,27 +52,26 @@ const Category = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 2rem;
+  color: hsla(240, 25%, 83%, 1);
 `;
+
+const CategoryName = styled.span`
+  font-size: 1.25rem;
+  margin-top: 0.6rem;
+`;
+
+// create a reusable style for home icons (width and height)
+// create CategoryName component and add margin-top of 0.6rem
+// loop through components to limit repetitiveness
 
 class Home extends Component {
   render() {
+    const categories = getCategories();
+
     return (
       <Container>
         <Title>Select a category</Title>
-        <CategoriesContainer>
-          <Category>
-            <User />
-            <span>People</span>
-          </Category>
-          <Category>
-            <Chrome />
-            <span>Planets</span>
-          </Category>
-          <Category>
-            <Send />
-            <span>Vehicles</span>
-          </Category>
-        </CategoriesContainer>
+        <CategoriesContainer>{categories}</CategoriesContainer>
       </Container>
     );
   }
