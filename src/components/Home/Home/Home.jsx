@@ -20,7 +20,7 @@ const getIconDataFrom = (icons, categoryName) => {
 
 const createJSXFrom = ({ color, Icon, categoryName }) => {
   return (
-    <Category color={color}>
+    <Category key={categoryName} color={color}>
       <Icon size={35} />
       <CategoryName>{categoryName}</CategoryName>
     </Category>
