@@ -1,15 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { User, Chrome, Send } from 'react-feather';
+import icons from './HomeData.jsx';
 import { Container, Title, Subscript, CategoriesContainer, CategoryStyles, CategoryName } from './Home.styles.jsx';
 
 const getJSXForCategories = () => {
-  const icons = {
-    People: { color: '#4f5ef5', iconName: User },
-    Planets: { color: '#f44c67', iconName: Chrome },
-    Vehicles: { color: '#2fca74', iconName: Send }
-  };
-
   const categoriesJSX = Object.keys(icons).map((categoryName) => {
     const iconData = getIconDataFrom(icons, categoryName);
     const categoryJSX = createJSXFrom(iconData);
