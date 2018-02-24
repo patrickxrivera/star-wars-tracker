@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled, { injectGlobal } from 'styled-components';
-import Nav from '../Nav/Nav.jsx';
+
+import NavBar from '../Nav/NavBar/NavBar.jsx';
 import Home from '../Home/Home.jsx';
 
 injectGlobal`
@@ -12,13 +13,13 @@ injectGlobal`
   }
 `;
 
-function App() {
+const App = () => {
   return (
     <div>
-      <Nav />
+      <NavBar />
       <Home />
     </div>
   );
-}
+};
 
 export default App;

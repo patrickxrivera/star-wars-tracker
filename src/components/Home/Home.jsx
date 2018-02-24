@@ -37,7 +37,7 @@ const Category = styled.div`
   ${CategoryStyles};
 `;
 
-function Home() {
+const Home = () => {
   const categoriesJSX = getJSXForCategories();
 
   return (
@@ -47,6 +47,6 @@ function Home() {
       <CategoriesContainer>{categoriesJSX}</CategoriesContainer>
     </Container>
   );
-}
+};
 
 export default Home;
