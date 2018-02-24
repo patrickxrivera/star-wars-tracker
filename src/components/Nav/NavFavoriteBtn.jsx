@@ -9,7 +9,7 @@ const Btn = styled.button`
   z-index: 100;
   width: 145px;
   height: 44px;
-  background: linear-gradient(to left, #da4453, #89216b);
+  background: #3e70ff;
   border: none;
   box-shadow: rgba(23, 43, 99, 0.26) 0 7px 42px;
   color: #fff;
