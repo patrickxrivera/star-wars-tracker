@@ -33,15 +33,21 @@ const createJSXFrom = ({ color, Icon, categoryName }) => {
 };
 
 const Container = styled.div`
-  margin: 120px auto 0;
+  margin: 80px auto 0;
   display: flex;
   flex-direction: column;
   padding-right: 3.8rem;
 `;
 
 const Title = styled.span`
-  font-size: 3rem;
+  font-size: 3.5rem;
   text-align: center;
+`;
+
+const Subscript = styled.span`
+  text-align: center;
+  margin-top: 3.5rem;
+  font-size: 1.5rem;
 `;
 
 const CategoriesContainer = styled.div`
@@ -58,6 +64,11 @@ const Category = styled.div`
   align-items: center;
   color: ${(props) => props.color};
   margin: 0 3rem;
+
+  &:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
 `;
 
 const CategoryName = styled.span`
@@ -72,6 +83,7 @@ class Home extends Component {
     return (
       <Container>
         <Title>Select a category</Title>
+        <Subscript>Detailed information on your favorite Star Wars characters.</Subscript>
         <CategoriesContainer>{categoriesJSX}</CategoriesContainer>
       </Container>
     );
