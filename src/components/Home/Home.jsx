@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { fadeInUp } from '../../styles/animations.jsx';
 import { User, Chrome, Send } from 'react-feather';
 
 const getJSXForCategories = () => {
@@ -37,6 +38,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding-right: 3.8rem;
+  opacity: 0;
+  animation: 1100ms ${fadeInUp} 1500ms forwards;
 `;
 
 const Title = styled.span`
@@ -76,18 +79,16 @@ const CategoryName = styled.span`
   margin-top: 0.6rem;
 `;
 
-class Home extends Component {
-  render() {
-    const categoriesJSX = getJSXForCategories();
+function Home() {
+  const categoriesJSX = getJSXForCategories();
 
-    return (
-      <Container>
-        <Title>Select a category</Title>
-        <Subscript>Detailed information on your favorite Star Wars characters.</Subscript>
-        <CategoriesContainer>{categoriesJSX}</CategoriesContainer>
-      </Container>
-    );
-  }
+  return (
+    <Container>
+      <Title>Select a category</Title>
+      <Subscript>Detailed information on your favorite Star Wars characters.</Subscript>
+      <CategoriesContainer>{categoriesJSX}</CategoriesContainer>
+    </Container>
+  );
 }
 
 export default Home;
