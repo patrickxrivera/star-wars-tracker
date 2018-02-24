@@ -5,6 +5,10 @@ import StoryBtn from './StoryBtn.jsx';
 import Title from './Title.jsx';
 import NavFavoriteBtn from './NavFavoriteBtn.jsx';
 
+const Banner = styled.div`
+  border-bottom: 2px solid red;
+`;
+
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -18,11 +22,13 @@ const Container = styled.div`
 class Nav extends Component {
   render() {
     return (
-      <Container>
-        <StoryBtn />
-        <Title />
-        <NavFavoriteBtn />
-      </Container>
+      <Banner>
+        <Container>
+          <StoryBtn />
+          <Title />
+          <NavFavoriteBtn />
+        </Container>
+      </Banner>
     );
   }
 }

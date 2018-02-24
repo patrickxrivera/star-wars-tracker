@@ -52,7 +52,6 @@ const Category = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 2rem;
-  color: hsla(240, 25%, 83%, 1);
 `;
 
 const CategoryName = styled.span`
