@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { fadeInUp } from '../../styles/animations.jsx';
+import { fadeInUp } from '../../styles/animations.js';
 import { User, Chrome, Send } from 'react-feather';
 
 const getJSXForCategories = () => {
