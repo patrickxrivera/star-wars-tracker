@@ -1,8 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 
-function StoryBtn() {
+const StoryBtn = () => {
   return <div>StoryBtn</div>;
-}
+};
 
 export default StoryBtn;

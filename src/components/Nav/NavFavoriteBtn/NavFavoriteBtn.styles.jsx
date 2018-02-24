@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Heart } from 'react-feather';
 
@@ -34,12 +33,4 @@ const SmallHeart = styled(Heart)`
   padding: 0 4px;
 `;
 
-function NavFavoriteBtn() {
-  return (
-    <Btn>
-      See Favorites <SmallHeart /> (0)
-    </Btn>
-  );
-}
-
-export default NavFavoriteBtn;
+export { Btn, SmallHeart };
