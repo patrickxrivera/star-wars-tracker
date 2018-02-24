@@ -21,7 +21,7 @@ const getCategories = () => {
 const createJSXFor = (Icon, categoryName) => {
   return (
     <Category>
-      <Icon />
+      <Icon size={35} />
       <CategoryName>{categoryName}</CategoryName>
     </Category>
   );
@@ -43,7 +43,7 @@ const CategoriesContainer = styled.div`
   display: flex;
   flex: 1;
   justify-content: center;
-  margin-top: 4rem;
+  margin-top: 4.5rem;
 `;
 
 const Category = styled.div`
@@ -51,7 +51,7 @@ const Category = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 2rem;
+  margin: 0 3rem;
 `;
 
 const CategoryName = styled.span`
