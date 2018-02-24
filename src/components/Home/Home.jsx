@@ -2,25 +2,30 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { User, Chrome, Send } from 'react-feather';
 
-const getCategories = () => {
+const getJSXForCategories = () => {
   const icons = {
-    People: User,
-    Planets: Chrome,
-    Vehicles: Send
+    People: { color: '#4f5ef5', iconName: User },
+    Planets: { color: '#f44c67', iconName: Chrome },
+    Vehicles: { color: '#2fca74', iconName: Send }
   };
 
-  const categories = Object.keys(icons).map((categoryName) => {
-    const Icon = icons[categoryName];
-    const categoryJSX = createJSXFor(Icon, categoryName);
+  const categoriesJSX = Object.keys(icons).map((categoryName) => {
+    const iconData = getIconDataFrom(icons, categoryName);
+    const categoryJSX = createJSXFrom(iconData);
     return categoryJSX;
   });
 
-  return categories;
+  return categoriesJSX;
 };
 
-const createJSXFor = (Icon, categoryName) => {
+const getIconDataFrom = (icons, categoryName) => {
+  const [color, Icon] = [icons[categoryName].color, icons[categoryName].iconName];
+  return { color, Icon, categoryName };
+};
+
+const createJSXFrom = ({ color, Icon, categoryName }) => {
   return (
-    <Category>
+    <Category color={color}>
       <Icon size={35} />
       <CategoryName>{categoryName}</CategoryName>
     </Category>
@@ -51,6 +56,7 @@ const Category = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: ${(props) => props.color};
   margin: 0 3rem;
 `;
 
@@ -61,12 +67,12 @@ const CategoryName = styled.span`
 
 class Home extends Component {
   render() {
-    const categories = getCategories();
+    const categoriesJSX = getJSXForCategories();
 
     return (
       <Container>
         <Title>Select a category</Title>
-        <CategoriesContainer>{categories}</CategoriesContainer>
+        <CategoriesContainer>{categoriesJSX}</CategoriesContainer>
       </Container>
     );
   }
