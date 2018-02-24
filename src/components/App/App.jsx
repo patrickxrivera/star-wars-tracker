@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled, { injectGlobal } from 'styled-components';
 
 import NavBar from '../Nav/NavBar/NavBar.jsx';
-import Home from '../Home/Home.jsx';
+import Home from '../Home/Home/Home.jsx';
 
 injectGlobal`
   body {
