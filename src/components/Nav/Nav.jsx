@@ -6,7 +6,8 @@ import Title from './Title.jsx';
 import NavFavoriteBtn from './NavFavoriteBtn.jsx';
 
 const Banner = styled.div`
-  border-bottom: 2px solid red;
+  border-bottom: 1px solid #ecf0f1;
+  padding-bottom: 1rem;
 `;
 
 const Container = styled.div`
@@ -24,7 +25,6 @@ class Nav extends Component {
     return (
       <Banner>
         <Container>
-          <StoryBtn />
           <Title />
           <NavFavoriteBtn />
         </Container>
