@@ -1,15 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ContainerStyles, CategoryName } from './CategoryStyles.jsx';
 import { func, string } from 'prop-types';
+
+import { ContainerStyles, CategoryName } from './CategoryStyles.jsx';
 
 const Container = styled.div`
   ${ContainerStyles};
 `;
 
-const Category = ({ onClick, categoryName, color, Icon }) => (
+const Category = ({ handleClick, categoryName, color, Icon }) => (
   <Container
-    onClick={() => onClick(categoryName)}
+    onClick={() => handleClick(categoryName)}
     key={categoryName}
     color={color}
   >

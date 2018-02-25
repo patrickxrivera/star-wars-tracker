@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import Container from './CategoriesContainerStyles.jsx';
-import getJSX from './helpers/helpers.jsx';
 
+import iconData from './CategoriesContainerData.jsx';
+import Category from '../Category/Category.jsx';
+import Container from './CategoriesContainerStyles.jsx';
 import ResultsContainer from '../../Results/ResultsContainer/ResultsContainer.jsx';
 
 class CategoriesContainer extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { selected: null };
+    this.state = {
+      selected: null
+    };
 
     this.handleClick = this.handleClick.bind(this);
   }
@@ -21,12 +24,24 @@ class CategoriesContainer extends Component {
 
   render() {
     const selected = this.state.selected;
-    const categoriesJSX = getJSX(this.handleClick);
-    console.log(selected);
+
+    const categories = Object.values(iconData).map(
+      ({ categoryName, color, Icon }) => {
+        return (
+          <Category
+            handleClick={this.handleClick}
+            key={categoryName}
+            color={color}
+            Icon={Icon}
+            categoryName={categoryName}
+          />
+        );
+      }
+    );
 
     return (
       <div>
-        <Container>{categoriesJSX}</Container>
+        <Container>{categories}</Container>
         {!!selected && <ResultsContainer selected={selected} />};
       </div>
     );
