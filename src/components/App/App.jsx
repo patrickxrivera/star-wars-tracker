@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AppStyles from './AppStyles.jsx'; // global style that applies on import
+import AppStyles from './AppStyles.jsx'; // global styles that apply on import
 
 import NavBar from '../Nav/NavBar/NavBar.jsx';
 import Home from '../Home/Home.jsx';
