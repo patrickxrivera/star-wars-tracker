@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Btn, SmallHeart } from './NavFavoriteBtn.styles.jsx';
+import { Btn, SmallHeart } from './NavFavoriteBtnStyles.jsx';
 
 const NavFavoriteBtn = () => (
   <Btn>

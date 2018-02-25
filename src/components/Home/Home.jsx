@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Title, Subscript, Category } from './Home.styles.jsx';
+import { Container, Title, Subscript, Category } from './HomeStyles.jsx';
 
 import CategoriesContainer from '../Categories/CategoriesContainer/CategoriesContainer.jsx';
 

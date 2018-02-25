@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from './Title.styles.jsx';
+import Header from './TitleStyles.jsx';
 
 const Title = () => (
   <div>
