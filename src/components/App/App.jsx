@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
-import styled, { injectGlobal } from 'styled-components';
+import AppStyles from './AppStyles.jsx'; // global style that applies on import
 
 import NavBar from '../Nav/NavBar/NavBar.jsx';
 import Home from '../Home/Home/Home.jsx';
-
-injectGlobal`
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue,
-      sans-serif;
-    color: #52565F;
-    margin-top: 1rem;
-  }
-`;
 
 const App = () => {
   return (
