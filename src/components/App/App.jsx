@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import AppStyles from './AppStyles.jsx'; // global styles that apply on import
 
 import NavBar from '../Nav/NavBar/NavBar.jsx';
