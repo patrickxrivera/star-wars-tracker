@@ -25,165 +25,186 @@ exports[`Home renders correctly 1`] = `
           <div
             className="sc-bxivhb cjKwyO"
           >
-            <styled.div
+            <Category
+              categoryName="People"
               color="#4f5ef5"
               data-test="category-People"
+              icon={[Function]}
               key="People"
               onClick={[Function]}
             >
-              <div
-                className="sc-EHOje dLmORQ"
+              <styled.div
                 color="#4f5ef5"
                 data-test="category-People"
-                onClick={[Function]}
+                key="People"
               >
-                <User
-                  color="currentColor"
-                  size={35}
+                <div
+                  className="sc-EHOje dLmORQ"
+                  color="#4f5ef5"
+                  data-test="category-People"
                 >
-                  <svg
-                    fill="none"
-                    height={35}
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    width={35}
-                    xmlns="http://www.w3.org/2000/svg"
+                  <User
+                    color="currentColor"
+                    size={35}
                   >
-                    <path
-                      d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
-                    />
-                    <circle
-                      cx="12"
-                      cy="7"
-                      r="4"
-                    />
-                  </svg>
-                </User>
-                <styled.span>
-                  <span
-                    className="sc-ifAKCX djuxRU"
-                  >
-                    People
-                  </span>
-                </styled.span>
-              </div>
-            </styled.div>
-            <styled.div
+                    <svg
+                      fill="none"
+                      height={35}
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      width={35}
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                      />
+                      <circle
+                        cx="12"
+                        cy="7"
+                        r="4"
+                      />
+                    </svg>
+                  </User>
+                  <styled.span>
+                    <span
+                      className="sc-ifAKCX djuxRU"
+                    >
+                      People
+                    </span>
+                  </styled.span>
+                </div>
+              </styled.div>
+            </Category>
+            <Category
+              categoryName="Planets"
               color="#f44c67"
               data-test="category-Planets"
+              icon={[Function]}
               key="Planets"
               onClick={[Function]}
             >
-              <div
-                className="sc-EHOje dmjSaJ"
+              <styled.div
                 color="#f44c67"
                 data-test="category-Planets"
-                onClick={[Function]}
+                key="Planets"
               >
-                <Chrome
-                  color="currentColor"
-                  size={35}
+                <div
+                  className="sc-EHOje dmjSaJ"
+                  color="#f44c67"
+                  data-test="category-Planets"
                 >
-                  <svg
-                    fill="none"
-                    height={35}
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    width={35}
-                    xmlns="http://www.w3.org/2000/svg"
+                  <Chrome
+                    color="currentColor"
+                    size={35}
                   >
-                    <circle
-                      cx="12"
-                      cy="12"
-                      r="10"
-                    />
-                    <circle
-                      cx="12"
-                      cy="12"
-                      r="4"
-                    />
-                    <line
-                      x1="21.17"
-                      x2="12"
-                      y1="8"
-                      y2="8"
-                    />
-                    <line
-                      x1="3.95"
-                      x2="8.54"
-                      y1="6.06"
-                      y2="14"
-                    />
-                    <line
-                      x1="10.88"
-                      x2="15.46"
-                      y1="21.94"
-                      y2="14"
-                    />
-                  </svg>
-                </Chrome>
-                <styled.span>
-                  <span
-                    className="sc-ifAKCX djuxRU"
-                  >
-                    Planets
-                  </span>
-                </styled.span>
-              </div>
-            </styled.div>
-            <styled.div
+                    <svg
+                      fill="none"
+                      height={35}
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      width={35}
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="10"
+                      />
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="4"
+                      />
+                      <line
+                        x1="21.17"
+                        x2="12"
+                        y1="8"
+                        y2="8"
+                      />
+                      <line
+                        x1="3.95"
+                        x2="8.54"
+                        y1="6.06"
+                        y2="14"
+                      />
+                      <line
+                        x1="10.88"
+                        x2="15.46"
+                        y1="21.94"
+                        y2="14"
+                      />
+                    </svg>
+                  </Chrome>
+                  <styled.span>
+                    <span
+                      className="sc-ifAKCX djuxRU"
+                    >
+                      Planets
+                    </span>
+                  </styled.span>
+                </div>
+              </styled.div>
+            </Category>
+            <Category
+              categoryName="Vehicles"
               color="#2fca74"
               data-test="category-Vehicles"
+              icon={[Function]}
               key="Vehicles"
               onClick={[Function]}
             >
-              <div
-                className="sc-EHOje fFnlGC"
+              <styled.div
                 color="#2fca74"
                 data-test="category-Vehicles"
-                onClick={[Function]}
+                key="Vehicles"
               >
-                <Send
-                  color="currentColor"
-                  size={35}
+                <div
+                  className="sc-EHOje fFnlGC"
+                  color="#2fca74"
+                  data-test="category-Vehicles"
                 >
-                  <svg
-                    fill="none"
-                    height={35}
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    width={35}
-                    xmlns="http://www.w3.org/2000/svg"
+                  <Send
+                    color="currentColor"
+                    size={35}
                   >
-                    <line
-                      x1="22"
-                      x2="11"
-                      y1="2"
-                      y2="13"
-                    />
-                    <polygon
-                      points="22 2 15 22 11 13 2 9 22 2"
-                    />
-                  </svg>
-                </Send>
-                <styled.span>
-                  <span
-                    className="sc-ifAKCX djuxRU"
-                  >
-                    Vehicles
-                  </span>
-                </styled.span>
-              </div>
-            </styled.div>
+                    <svg
+                      fill="none"
+                      height={35}
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      width={35}
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <line
+                        x1="22"
+                        x2="11"
+                        y1="2"
+                        y2="13"
+                      />
+                      <polygon
+                        points="22 2 15 22 11 13 2 9 22 2"
+                      />
+                    </svg>
+                  </Send>
+                  <styled.span>
+                    <span
+                      className="sc-ifAKCX djuxRU"
+                    >
+                      Vehicles
+                    </span>
+                  </styled.span>
+                </div>
+              </styled.div>
+            </Category>
           </div>
         </styled.div>
       </CategoriesContainer>

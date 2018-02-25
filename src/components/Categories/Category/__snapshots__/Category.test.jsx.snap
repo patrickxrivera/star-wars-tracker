@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Category renders correctly 1`] = `
+<styled.div
+  data-test="category-undefined"
+>
+  <styled.span />
+</styled.div>
+`;

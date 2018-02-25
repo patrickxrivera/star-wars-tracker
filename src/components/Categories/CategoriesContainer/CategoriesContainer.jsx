@@ -60,5 +60,4 @@ class CategoriesContainer extends Component {
   }
 }
 
-export { Category };
 export default CategoriesContainer;
