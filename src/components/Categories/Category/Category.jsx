@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { ContainerStyles, CategoryName } from './CategoryStyles.jsx';
 import { func, string } from 'prop-types';
