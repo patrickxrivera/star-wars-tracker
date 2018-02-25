@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { fadeInUp } from '../../../styles/animations.js';
+import { fadeInUp } from '../../styles/animations.js';
 
 export const Container = styled.div`
   margin: 80px auto 0;

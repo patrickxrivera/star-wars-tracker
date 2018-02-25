@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
-import { sel, simulateClick } from '../../../utils/testUtils';
+import { sel, simulateClick } from '../../utils/testUtils';
 
 import Home from './Home.jsx';
 
