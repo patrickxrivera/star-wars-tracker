@@ -46,7 +46,6 @@ class CategoriesContainer extends Component {
         onClick={this.handleClick}
         key={categoryName}
         color={color}
-        data-test={`category-${categoryName}`}
         icon={Icon}
         categoryName={categoryName}
       />
