@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-import icons from './CategoryData.jsx';
-import { Container, CategoryStyles, CategoryName } from './CategoryStyles.jsx';
+import Container from './CategoriesContainerStyles.jsx';
+import icons from './CategoriesContainerData.jsx';
 
-const Category = styled.div`
-  ${CategoryStyles};
-`;
+import Category from './Category/Category.jsx';
 
 class CategoriesContainer extends Component {
   constructor(props) {
@@ -50,10 +47,9 @@ class CategoriesContainer extends Component {
         key={categoryName}
         color={color}
         data-test={`category-${categoryName}`}
-      >
-        <Icon size={35} />
-        <CategoryName>{categoryName}</CategoryName>
-      </Category>
+        icon={Icon}
+        categoryName={categoryName}
+      />
     );
   }
 
@@ -64,4 +60,5 @@ class CategoriesContainer extends Component {
   }
 }
 
+export { Category };
 export default CategoriesContainer;

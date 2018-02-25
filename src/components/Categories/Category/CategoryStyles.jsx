@@ -1,13 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const Container = styled.div`
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  margin-top: 4.5rem;
-`;
-
-const CategoryStyles = css`
+const ContainerStyles = css`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,4 +19,4 @@ const CategoryName = styled.span`
   margin-top: 0.6rem;
 `;
 
-export { Container, CategoryStyles, CategoryName };
+export { ContainerStyles, CategoryName };
