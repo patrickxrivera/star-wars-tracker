@@ -18,8 +18,8 @@ class CategoriesContainer extends Component {
     });
   }
 
-  handleClick() {
-    console.log('working!');
+  handleClick(categoryName) {
+    console.log(categoryName);
   }
 
   getJSXForCategories() {

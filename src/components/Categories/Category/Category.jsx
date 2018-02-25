@@ -6,8 +6,12 @@ const Container = styled.div`
   ${ContainerStyles};
 `;
 
-const Category = ({ handleClick, categoryName, color, Icon }) => (
-  <Container onClick={handleClick} key={categoryName} color={color}>
+const Category = ({ onClick, categoryName, color, Icon }) => (
+  <Container
+    onClick={() => onClick(categoryName)}
+    key={categoryName}
+    color={color}
+  >
     <Icon size={35} />
     <CategoryName>{categoryName}</CategoryName>
   </Container>
