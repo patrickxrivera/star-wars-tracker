@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Container from './CategoriesContainerStyles.jsx';
 import icons from './CategoriesContainerData.jsx';
 
-import Category from './Category/Category.jsx';
+import Category from '../Category/Category.jsx';
 
 class CategoriesContainer extends Component {
   constructor(props) {

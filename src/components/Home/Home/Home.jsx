@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Title, Subscript, Category } from './Home.styles.jsx';
 
-import CategoriesContainer from '../../Categories/CategoriesContainer.jsx';
+import CategoriesContainer from '../../Categories/CategoriesContainer/CategoriesContainer.jsx';
 
 const Home = () => {
   return (
