@@ -31,6 +31,7 @@ const SmallHeart = styled(Heart)`
   width: 13px;
   height: 13px;
   padding: 0 4px;
+  stroke-width: 3;
 `;
 
 export { Btn, SmallHeart };

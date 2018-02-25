@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import iconData from './CategoriesContainerData.jsx';
 import Category from '../Category/Category.jsx';
@@ -29,11 +30,11 @@ class CategoriesContainer extends Component {
       ({ categoryName, color, Icon }) => {
         return (
           <Category
-            handleClick={this.handleClick}
-            key={categoryName}
+            categoryName={categoryName}
             color={color}
             Icon={Icon}
-            categoryName={categoryName}
+            handleClick={this.handleClick}
+            key={categoryName}
           />
         );
       }
@@ -42,7 +43,7 @@ class CategoriesContainer extends Component {
     return (
       <div>
         <Container>{categories}</Container>
-        {!!selected && <ResultsContainer selected={selected} />};
+        {!!selected && <Link to={{ pathname: `results` }} />};
       </div>
     );
   }

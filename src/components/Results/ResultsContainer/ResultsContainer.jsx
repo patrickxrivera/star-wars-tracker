@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import CategoriesContainer from '../../Categories/CategoriesContainer/CategoriesContainer.jsx';
+import Container from './ResultsContainerStyles.jsx';
+import ResultsCardContainer from '../ResultsCardContainer/ResultsCardContainer.jsx';
+
 class ResultsContainer extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +14,22 @@ class ResultsContainer extends Component {
   }
 
   render() {
-    return <div>{this.state.selected}</div>;
+    return (
+      <div>
+        <CategoriesContainer />
+        <Container>
+          <ResultsCardContainer />
+          <ResultsCardContainer />
+          <ResultsCardContainer />
+          <ResultsCardContainer />
+          <ResultsCardContainer />
+          <ResultsCardContainer />
+          <ResultsCardContainer />
+          <ResultsCardContainer />
+          <ResultsCardContainer />
+        </Container>
+      </div>
+    );
   }
 }
 
