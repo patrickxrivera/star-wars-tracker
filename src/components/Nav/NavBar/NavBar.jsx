@@ -5,17 +5,13 @@ import StoryBtn from '../StoryBtn/StoryBtn.jsx';
 import Title from '../Title/Title.jsx';
 import NavFavoriteBtn from '../NavFavoriteBtn/NavFavoriteBtn.jsx';
 
-class NavBar extends Component {
-  render() {
-    return (
-      <Banner>
-        <Container>
-          <Title />
-          <NavFavoriteBtn />
-        </Container>
-      </Banner>
-    );
-  }
-}
+const NavBar = () => (
+  <Banner>
+    <Container>
+      <Title />
+      <NavFavoriteBtn />
+    </Container>
+  </Banner>
+);
 
 export default NavBar;

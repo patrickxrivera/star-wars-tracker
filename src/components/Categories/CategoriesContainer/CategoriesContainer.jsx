@@ -19,7 +19,7 @@ class CategoriesContainer extends Component {
   }
 
   handleClick() {
-    return null;
+    console.log('working!');
   }
 
   getJSXForCategories() {
@@ -46,7 +46,7 @@ class CategoriesContainer extends Component {
         onClick={this.handleClick}
         key={categoryName}
         color={color}
-        icon={Icon}
+        Icon={Icon}
         categoryName={categoryName}
       />
     );
