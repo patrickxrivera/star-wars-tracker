@@ -32,8 +32,8 @@ const api = {
     dataModel = await this._addHomeworldDataToDataModel(homeworldData, dataModel);
     dataModel = await this._addSpeciesDataToDataModel(speciesData, dataModel);
     dataModel = this._addNamesToDataModel(shortenedList, dataModel);
-
     dataModel = this._formatPopulation(dataModel);
+
     return dataModel;
   },
 
@@ -73,7 +73,7 @@ const api = {
   _addNamesToDataModel(list, dataModel) {
     list.forEach((person, idx) => {
       dataModel[idx] = dataModel[idx] || {};
-      dataModel[idx].name = person.name;
+      dataModel[idx].Name = person.name;
     });
     return dataModel;
   },
