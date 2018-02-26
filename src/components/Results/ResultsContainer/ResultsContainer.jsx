@@ -23,7 +23,7 @@ class ResultsContainer extends Component {
   }
 
   async updateResults(selected) {
-    const response = await api.fetchResultsFor(selected);
+    const response = await api.getDataModelFor(selected);
     console.log(response);
   }
 
