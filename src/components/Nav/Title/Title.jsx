@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Header from './TitleStyles.jsx';
+import { Header, Link } from './TitleStyles.jsx';
 
 const Title = () => (
-  <div>
-    <Header>The API Strikes Back</Header>
-  </div>
+  <Header>
+    <Link href="/">The API Strikes Back</Link>
+  </Header>
 );
 
 export default Title;

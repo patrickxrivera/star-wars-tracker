@@ -5,4 +5,13 @@ const Header = styled.div`
   font-weight: bold;
 `;
 
-export default Header;
+const Link = styled.a`
+  text-decoration: none;
+  color: #52565f;
+
+  &:visited {
+    color: default;
+  }
+`;
+
+export { Header, Link };
