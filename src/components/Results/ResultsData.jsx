@@ -1,6 +1,6 @@
 const data = {
   homeworld: 'Tatooine',
-  population: '100000',
+  population: '100,000',
   name: 'Luke Skywalker',
   species: 'Human',
   language: 'Galactic Basic'

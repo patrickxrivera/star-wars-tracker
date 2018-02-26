@@ -3,25 +3,37 @@ import React from 'react';
 import data from '../ResultsData.jsx';
 import {
   Container,
-  ContentContainer,
+  HeaderContainer,
+  HeaderBackground,
   Header,
   List,
-  ListItem
+  ListItem,
+  ItemTitle
 } from './ResultsCardContainerStyles.jsx';
 
 const { homeworld, population, name, species, language } = data;
 
 const ResultsCardContainer = () => (
   <Container>
-    <ContentContainer>
-      <Header>{name}</Header>
-      <List>
-        <ListItem>{homeworld}</ListItem>
-        <ListItem>{species}</ListItem>
-        <ListItem>{language}</ListItem>
-        <ListItem>{population}</ListItem>
-      </List>
-    </ContentContainer>
+    <HeaderBackground>
+      <HeaderContainer>
+        <Header>{name}</Header>
+      </HeaderContainer>
+    </HeaderBackground>
+    <List>
+      <ListItem>
+        <ItemTitle>Home: </ItemTitle> {homeworld}
+      </ListItem>
+      <ListItem>
+        <ItemTitle>Species: </ItemTitle> {species}
+      </ListItem>
+      <ListItem>
+        <ItemTitle>Language: </ItemTitle> {language}
+      </ListItem>
+      <ListItem>
+        <ItemTitle>Population </ItemTitle> {population}
+      </ListItem>
+    </List>
   </Container>
 );
 

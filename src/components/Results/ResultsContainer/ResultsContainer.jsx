@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 import CategoriesContainer from '../../Categories/CategoriesContainer/CategoriesContainer.jsx';
-import { Container, theme } from './ResultsContainerStyles.jsx';
+import { Container, GridContainer, theme } from './ResultsContainerStyles.jsx';
 import ResultsCardContainer from '../ResultsCardContainer/ResultsCardContainer.jsx';
 
 class ResultsContainer extends Component {
@@ -21,15 +21,17 @@ class ResultsContainer extends Component {
           <CategoriesContainer />
         </ThemeProvider>
         <Container>
-          <ResultsCardContainer />
-          <ResultsCardContainer />
-          <ResultsCardContainer />
-          <ResultsCardContainer />
-          <ResultsCardContainer />
-          <ResultsCardContainer />
-          <ResultsCardContainer />
-          <ResultsCardContainer />
-          <ResultsCardContainer />
+          <GridContainer>
+            <ResultsCardContainer />
+            <ResultsCardContainer />
+            <ResultsCardContainer />
+            <ResultsCardContainer />
+            <ResultsCardContainer />
+            <ResultsCardContainer />
+            <ResultsCardContainer />
+            <ResultsCardContainer />
+            <ResultsCardContainer />
+          </GridContainer>
         </Container>
       </div>
     );

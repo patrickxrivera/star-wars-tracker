@@ -5,7 +5,7 @@ const AppStyles = injectGlobal`
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue,
       sans-serif;
     color: #52565F;
-    margin-top: 1rem;
+    margin: 0;
   }
 `;
 
