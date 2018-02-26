@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import iconData from './CategoriesContainerData.jsx';
 import Category from '../Category/Category.jsx';
 import { Container, StyledLink } from './CategoriesContainerStyles.jsx';
-import ResultsContainer from '../../Results/ResultsContainer/ResultsContainer.jsx';
 
 const categories = Object.values(iconData).map(
   ({ categoryName, color, Icon }) => {
@@ -13,13 +12,9 @@ const categories = Object.values(iconData).map(
           pathname: '/results',
           state: { selected: categoryName }
         }}
+        key={categoryName}
       >
-        <Category
-          categoryName={categoryName}
-          color={color}
-          Icon={Icon}
-          key={categoryName}
-        />
+        <Category categoryName={categoryName} color={color} Icon={Icon} />
       </StyledLink>
     );
   }

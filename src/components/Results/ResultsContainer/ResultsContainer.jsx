@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 
+import api from '../../../utils/api';
 import CategoriesContainer from '../../Categories/CategoriesContainer/CategoriesContainer.jsx';
 import { Container, GridContainer, theme } from './ResultsContainerStyles.jsx';
 import ResultsCardContainer from '../ResultsCardContainer/ResultsCardContainer.jsx';
@@ -10,12 +11,23 @@ class ResultsContainer extends Component {
     super(props);
 
     this.state = {
-      selected: this.props.location.state.selected
+      selected: this.props.location.state.selected,
+      results: null
     };
+
+    this.updateResults = this.updateResults.bind(this);
+  }
+
+  componentDidMount() {
+    this.updateResults(this.state.selected);
+  }
+
+  async updateResults(selected) {
+    const response = await api.fetchResultsFor(selected);
+    console.log(response);
   }
 
   render() {
-    console.log(this.state.selected);
     return (
       <div>
         <ThemeProvider theme={theme}>
