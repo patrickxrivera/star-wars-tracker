@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const Container = styled.div`
   width: 100%;
   border-top: 2px solid #4f5ef5;
+  margin-top: 2rem;
 `;
 
 const GridContainer = styled.div`
@@ -16,7 +17,7 @@ const GridContainer = styled.div`
 `;
 
 const theme = {
-  main: '2rem'
+  main: '1.7rem'
 };
 
 export { Container, GridContainer, theme };

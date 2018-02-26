@@ -10,11 +10,12 @@ class ResultsContainer extends Component {
     super(props);
 
     this.state = {
-      selected: this.props.selected
+      selected: this.props.location.state.selected
     };
   }
 
   render() {
+    console.log(this.state.selected);
     return (
       <div>
         <ThemeProvider theme={theme}>

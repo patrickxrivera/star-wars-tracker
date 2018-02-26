@@ -8,15 +8,14 @@ const Container = styled.div`
   ${ContainerStyles};
 `;
 
-const Category = ({ categoryName, color, Icon, handleClick }) => (
-  <Container onClick={() => handleClick(categoryName)} color={color}>
+const Category = ({ categoryName, color, Icon }) => (
+  <Container color={color}>
     <Icon size={35} />
     <CategoryName>{categoryName}</CategoryName>
   </Container>
 );
 
 Category.propTypes = {
-  handleClick: func.isRequired,
   categoryName: string.isRequired,
   color: string.isRequired,
   Icon: func.isRequired
