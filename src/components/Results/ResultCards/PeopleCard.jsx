@@ -8,7 +8,7 @@ import {
   List,
   ListItem,
   ItemTitle
-} from './ResultsCardContainerStyles.jsx';
+} from './ResultCardStyles.jsx';
 
 const PeopleCard = (props) => {
   const { Name, Species, Homeworld, Language, Population } = props.data;

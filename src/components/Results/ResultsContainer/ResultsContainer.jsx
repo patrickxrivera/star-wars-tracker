@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import api from '../../../utils/api';
+import api from '../../../utils/api/api';
 import CategoriesContainer from '../../Categories/CategoriesContainer/CategoriesContainer.jsx';
 import { Container, GridContainer, theme } from './ResultsContainerStyles.jsx';
-import PeopleCard from '../ResultsCardContainer/PeopleCard.jsx';
+import PeopleCard from '../ResultCards/PeopleCard.jsx';
 
 class ResultsContainer extends Component {
   constructor(props) {

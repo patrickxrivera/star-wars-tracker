@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { endpoint, count } from '../components/Results/ResultsCardContainer/ResultsCardData';
+import { endpoint, count } from './endpoints';
 
 const api = {
   async getDataModelFor(selected) {
