@@ -10,28 +10,32 @@ import {
   ItemTitle
 } from './ResultsCardContainerStyles.jsx';
 
-const PeopleCard = ({ name, homeworld, species, language, population }) => (
-  <Container>
-    <HeaderBackground>
-      <HeaderContainer>
-        <Header>{name}</Header>
-      </HeaderContainer>
-    </HeaderBackground>
-    <List>
-      <ListItem>
-        <ItemTitle>Home: </ItemTitle> {homeworld}
-      </ListItem>
-      <ListItem>
-        <ItemTitle>Species: </ItemTitle> {species}
-      </ListItem>
-      <ListItem>
-        <ItemTitle>Language: </ItemTitle> {language}
-      </ListItem>
-      <ListItem>
-        <ItemTitle>Population </ItemTitle> {population}
-      </ListItem>
-    </List>
-  </Container>
-);
+const PeopleCard = (props) => {
+  const { Name, Species, Homeworld, Language, Population } = props.data;
+
+  return (
+    <Container>
+      <HeaderBackground>
+        <HeaderContainer>
+          <Header>{Name}</Header>
+        </HeaderContainer>
+      </HeaderBackground>
+      <List>
+        <ListItem>
+          <ItemTitle>Home: </ItemTitle> {Homeworld}
+        </ListItem>
+        <ListItem>
+          <ItemTitle>Species: </ItemTitle> {Species}
+        </ListItem>
+        <ListItem>
+          <ItemTitle>Language: </ItemTitle> {Language}
+        </ListItem>
+        <ListItem>
+          <ItemTitle>Population </ItemTitle> {Population}
+        </ListItem>
+      </List>
+    </Container>
+  );
+};
 
 export default PeopleCard;

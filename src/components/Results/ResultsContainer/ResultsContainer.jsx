@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import api from '../../../utils/api';
 import CategoriesContainer from '../../Categories/CategoriesContainer/CategoriesContainer.jsx';
 import { Container, GridContainer, theme } from './ResultsContainerStyles.jsx';
-import ResultsCardContainer from '../ResultsCardContainer/ResultsCardContainer.jsx';
+import PeopleCard from '../ResultsCardContainer/PeopleCard.jsx';
 
 class ResultsContainer extends Component {
   constructor(props) {
@@ -23,11 +23,16 @@ class ResultsContainer extends Component {
   }
 
   async updateResults(selected) {
-    const response = await api.getDataModelFor(selected);
-    console.log(response);
+    const results = await api.getDataModelFor(selected);
+
+    this.setState(() => {
+      return { results };
+    });
   }
 
   render() {
+    const results = this.state.results;
+
     return (
       <div>
         <ThemeProvider theme={theme}>
@@ -35,15 +40,10 @@ class ResultsContainer extends Component {
         </ThemeProvider>
         <Container>
           <GridContainer>
-            <ResultsCardContainer />
-            <ResultsCardContainer />
-            <ResultsCardContainer />
-            <ResultsCardContainer />
-            <ResultsCardContainer />
-            <ResultsCardContainer />
-            <ResultsCardContainer />
-            <ResultsCardContainer />
-            <ResultsCardContainer />
+            {results &&
+              Object.values(results).map((data) => {
+                return <PeopleCard key={data.Name} data={data} />;
+              })}
           </GridContainer>
         </Container>
       </div>
