@@ -9,4 +9,8 @@ const Container = styled.div`
   width: 900px;
 `;
 
-export default Container;
+const theme = {
+  main: '0.5rem'
+};
+
+export { Container, theme };

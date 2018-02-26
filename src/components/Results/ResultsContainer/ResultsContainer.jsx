@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 
 import CategoriesContainer from '../../Categories/CategoriesContainer/CategoriesContainer.jsx';
-import Container from './ResultsContainerStyles.jsx';
+import { Container, theme } from './ResultsContainerStyles.jsx';
 import ResultsCardContainer from '../ResultsCardContainer/ResultsCardContainer.jsx';
 
 class ResultsContainer extends Component {
@@ -16,7 +17,9 @@ class ResultsContainer extends Component {
   render() {
     return (
       <div>
-        <CategoriesContainer />
+        <ThemeProvider theme={theme}>
+          <CategoriesContainer />
+        </ThemeProvider>
         <Container>
           <ResultsCardContainer />
           <ResultsCardContainer />
