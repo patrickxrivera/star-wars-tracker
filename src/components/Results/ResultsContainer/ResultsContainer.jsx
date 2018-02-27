@@ -18,16 +18,21 @@ class ResultsContainer extends Component {
     this.updateResults = this.updateResults.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props !== nextProps) {
+      this.setState({ selected: nextProps.location.state.selected }, () =>
+        this.updateResults(this.state.selected)
+      );
+    }
+  }
+
   componentDidMount() {
     this.updateResults(this.state.selected);
   }
 
   async updateResults(selected) {
     const results = await api.getDataModelFor(selected);
-
-    this.setState(() => {
-      return { results };
-    });
+    this.setState({ results });
   }
 
   render() {
