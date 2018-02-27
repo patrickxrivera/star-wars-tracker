@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import api from '../../../utils/api/api';
+import getTargetCard from '../ResultCards/helpers/resultCardHelpers';
 import CategoriesContainer from '../../Categories/CategoriesContainer/CategoriesContainer.jsx';
 import { Container, GridContainer, theme } from './ResultsContainerStyles.jsx';
 import PeopleCard from '../ResultCards/PeopleCard.jsx';
@@ -31,6 +32,8 @@ class ResultsContainer extends Component {
   }
 
   render() {
+    const selected = this.state.selected;
+    const TargetCard = getTargetCard(selected);
     const results = this.state.results;
 
     return (
@@ -42,7 +45,7 @@ class ResultsContainer extends Component {
           <GridContainer>
             {results &&
               Object.values(results).map((data) => {
-                return <PeopleCard key={data.Name} data={data} />;
+                return <TargetCard key={data.Name} data={data} />;
               })}
           </GridContainer>
         </Container>
