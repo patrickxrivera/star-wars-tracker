@@ -7,7 +7,7 @@ const Container = styled.div`
   border-radius: 4px;
   z-index: 1;
   justify-self: center;
-  margin-top: 2rem;
+  margin-top: 4rem;
   background: #fff;
 `;
 
@@ -41,12 +41,4 @@ const ItemTitle = styled.span`
   opacity: 0.75;
 `;
 
-export {
-  Container,
-  HeaderBackground,
-  HeaderContainer,
-  Header,
-  List,
-  ListItem,
-  ItemTitle
-};
+export { Container, HeaderBackground, HeaderContainer, Header, List, ListItem, ItemTitle };
