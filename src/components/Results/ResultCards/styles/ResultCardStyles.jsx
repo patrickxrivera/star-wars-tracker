@@ -29,7 +29,7 @@ const Header = styled.span`
 const List = styled.div`
   list-style-type: none;
   margin-top: 1.1rem;
-  padding-left: 1.2rem;
+  padding: 0 1.2rem;
   font-size: 16px;
 `;
 

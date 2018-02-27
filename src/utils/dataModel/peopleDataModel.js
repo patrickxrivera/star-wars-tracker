@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import formatPopulation from './helpers/dataModelHelpers';
-import { endpoint, count } from '../api/apiData';
+import { count } from '../api/apiData';
 
 let dataModel = {};
 

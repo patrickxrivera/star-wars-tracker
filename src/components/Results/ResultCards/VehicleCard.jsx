@@ -25,7 +25,7 @@ const VehicleCard = (props) => {
           <ItemTitle>Model: </ItemTitle> {Model}
         </ListItem>
         <ListItem>
-          <ItemTitle>Class </ItemTitle> {Class}
+          <ItemTitle>Class: </ItemTitle> {Class}
         </ListItem>
         <ListItem>
           <ItemTitle>Passengers: </ItemTitle> {Passengers}

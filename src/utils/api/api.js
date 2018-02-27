@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-import { endpoint, count } from './apiData';
+import { endpoint } from './apiData';
 import createPeopleDataModelFrom from '../dataModel/peopleDataModel';
 import createVehicleDataModelFrom from '../dataModel/vehicleDataModel';
+import createPlanetDataModelFrom from '../dataModel/planetDataModel';
 
 const api = {
   async getDataModelFor(selected) {
@@ -16,7 +17,8 @@ const api = {
         const vehicleDataModel = createVehicleDataModelFrom(results);
         return vehicleDataModel;
       case 'Planets':
-        const planetDataModel = this.createPlanetDataModelFrom(results);
+        const planetDataModel = createPlanetDataModelFrom(results);
+        console.log(planetDataModel);
         return planetDataModel;
       default:
         throw new Error(`${selected} is an invalid value for the api endpoint. Please try again.`);
@@ -28,9 +30,7 @@ const api = {
     const response = await axios.get(targetEndpoint);
     const results = response.data.results;
     return results;
-  },
-
-  createPlanetDataModelFrom(results) {}
+  }
 };
 
 export default api;
