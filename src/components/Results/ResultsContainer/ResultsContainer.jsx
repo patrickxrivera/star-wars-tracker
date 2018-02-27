@@ -5,7 +5,6 @@ import api from '../../../utils/api/api';
 import getTargetCard from '../ResultCards/helpers/resultCardHelpers';
 import CategoriesContainer from '../../Categories/CategoriesContainer/CategoriesContainer.jsx';
 import { Container, GridContainer, theme } from './ResultsContainerStyles.jsx';
-import PeopleCard from '../ResultCards/PeopleCard.jsx';
 
 class ResultsContainer extends Component {
   constructor(props) {
