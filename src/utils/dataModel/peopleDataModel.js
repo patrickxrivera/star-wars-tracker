@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-import { endpoint, count } from './apiData';
+import formatPopulation from './helpers/dataModelHelpers';
+import { endpoint, count } from '../api/apiData';
 
 let dataModel = {};
 
@@ -13,7 +14,7 @@ const createPeopleDataModelFrom = async (results) => {
   dataModel = await _addHomeworldDataToDataModel(homeworldData, dataModel);
   dataModel = await _addSpeciesDataToDataModel(speciesData, dataModel);
   dataModel = _addNamesToDataModel(shortenedList, dataModel);
-  dataModel = _formatPopulation(dataModel);
+  dataModel = formatPopulation(dataModel);
 
   return dataModel;
 };
@@ -56,15 +57,6 @@ const _addNamesToDataModel = (list, dataModel) => {
     dataModel[idx] = dataModel[idx] || {};
     dataModel[idx].Name = person.name;
   });
-  return dataModel;
-};
-
-const _formatPopulation = (dataModel) => {
-  for (let key in dataModel) {
-    const formattedPopulation = Number(dataModel[key].Population).toLocaleString();
-    dataModel[key].Population = formattedPopulation;
-  }
-
   return dataModel;
 };
 

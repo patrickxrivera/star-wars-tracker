@@ -1,7 +1,8 @@
-import { count } from './apiData';
+import { count } from '../api/apiData';
+
+let dataModel = {};
 
 const createVehicleDataModelFrom = (results) => {
-  let dataModel = {};
   const vehicleData = results.slice(0, count);
   vehicleData.forEach((vehicle, idx) => {
     const { name, model, vehicle_class, passengers } = vehicle;
