@@ -12,10 +12,11 @@ import {
 
 const PeopleCard = (props) => {
   const { Name, Species, Homeworld, Language, Population } = props.data;
+  const selected = props.selected;
 
   return (
     <Container>
-      <HeaderBackground>
+      <HeaderBackground selected={selected}>
         <HeaderContainer>
           <Header>{Name}</Header>
         </HeaderContainer>

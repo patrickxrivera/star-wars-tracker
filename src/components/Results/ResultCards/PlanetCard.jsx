@@ -12,10 +12,11 @@ import {
 
 const PlanetCard = (props) => {
   const { Name, Terrain, Population, Climate } = props.data;
+  const selected = props.selected;
 
   return (
     <Container>
-      <HeaderBackground>
+      <HeaderBackground selected={selected}>
         <HeaderContainer>
           <Header>{Name}</Header>
         </HeaderContainer>

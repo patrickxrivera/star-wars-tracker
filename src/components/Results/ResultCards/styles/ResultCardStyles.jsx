@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { getBgColorFrom } from '../helpers/resultCardStylesHelpers';
 
 const Container = styled.div`
   height: 250px;
@@ -11,14 +12,14 @@ const Container = styled.div`
   background: #fff;
 `;
 
-const HeaderContainer = styled.div`
-  padding: 1.2rem;
-`;
-
 const HeaderBackground = styled.div`
   width: 100%;
-  background-color: #4f5ef5;
+  background-color: ${(props) => getBgColorFrom({ ...props })};
   border-radius: 4px 4px 0 0;
+`;
+
+const HeaderContainer = styled.div`
+  padding: 1.2rem;
 `;
 
 const Header = styled.span`
@@ -38,7 +39,7 @@ const ListItem = styled.li`
 `;
 
 const ItemTitle = styled.span`
-  opacity: 0.75;
+  opacity: 0.65;
 `;
 
 export { Container, HeaderBackground, HeaderContainer, Header, List, ListItem, ItemTitle };

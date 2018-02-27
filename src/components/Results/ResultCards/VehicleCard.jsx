@@ -12,10 +12,11 @@ import {
 
 const VehicleCard = (props) => {
   const { Name, Model, Class, Passengers } = props.data;
+  const selected = props.selected;
 
   return (
     <Container>
-      <HeaderBackground>
+      <HeaderBackground selected={props.selected}>
         <HeaderContainer>
           <Header>{Name}</Header>
         </HeaderContainer>

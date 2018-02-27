@@ -49,7 +49,7 @@ class ResultsContainer extends Component {
           <GridContainer>
             {results &&
               Object.values(results).map((data) => {
-                return <TargetCard key={data.Name} data={data} />;
+                return <TargetCard key={data.Name} selected={selected} data={data} />;
               })}
           </GridContainer>
         </Container>

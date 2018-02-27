@@ -3,7 +3,7 @@ export const getBorderBottomFrom = ({ selected, categoryName, color }) => {
 };
 
 export const getOpacityFrom = ({ selected, categoryName }) => {
-  return isUndefined(selected) || isSelected(selected, categoryName) ? '1' : '0.6';
+  return isUndefined(selected) || isSelected(selected, categoryName) ? '1' : '0.4';
 };
 
 export const getHoverOpacityFrom = ({ selected }) => {
