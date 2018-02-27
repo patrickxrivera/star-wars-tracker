@@ -18,7 +18,6 @@ const api = {
         return vehicleDataModel;
       case 'Planets':
         const planetDataModel = createPlanetDataModelFrom(results);
-        console.log(planetDataModel);
         return planetDataModel;
       default:
         throw new Error(`${selected} is an invalid value for the api endpoint. Please try again.`);
