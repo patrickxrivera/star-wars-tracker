@@ -4,7 +4,7 @@ import iconData from './CategoriesContainerData.jsx';
 import Category from '../Category/Category.jsx';
 import { Container, StyledLink } from './CategoriesContainerStyles.jsx';
 
-const CategoriesContainer = () => (
+const CategoriesContainer = ({ selected }) => (
   <Container>
     {Object.values(iconData).map(({ categoryName, color, Icon }) => {
       return (
@@ -15,7 +15,7 @@ const CategoriesContainer = () => (
           }}
           key={categoryName}
         >
-          <Category categoryName={categoryName} color={color} Icon={Icon} />
+          <Category selected={selected} categoryName={categoryName} color={color} Icon={Icon} />
         </StyledLink>
       );
     })}

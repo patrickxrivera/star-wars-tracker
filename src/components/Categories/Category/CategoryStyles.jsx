@@ -1,5 +1,11 @@
 import styled, { css } from 'styled-components';
 
+import {
+  getBorderBottomFrom,
+  getOpacityFrom,
+  getHoverOpacityFrom
+} from './helpers/categoryStylesHelpers';
+
 const ContainerStyles = css`
   display: flex;
   flex-direction: column;
@@ -7,9 +13,12 @@ const ContainerStyles = css`
   align-items: center;
   color: ${(props) => props.color};
   margin: 0 3rem;
+  padding-bottom: 2rem;
+  border-bottom: ${(props) => getBorderBottomFrom({ ...props })};
+  opacity: ${(props) => getOpacityFrom({ ...props })};
 
   &:hover {
-    opacity: 0.6;
+    opacity: ${(props) => getHoverOpacityFrom({ ...props })};
     cursor: pointer;
   }
 `;

@@ -8,8 +8,8 @@ const Container = styled.div`
   ${ContainerStyles};
 `;
 
-const Category = ({ categoryName, color, Icon }) => (
-  <Container color={color}>
+const Category = ({ selected, categoryName, color, Icon }) => (
+  <Container selected={selected} categoryName={categoryName} color={color}>
     <Icon size={35} />
     <CategoryName>{categoryName}</CategoryName>
   </Container>

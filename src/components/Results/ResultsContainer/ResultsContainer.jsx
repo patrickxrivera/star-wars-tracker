@@ -43,7 +43,7 @@ class ResultsContainer extends Component {
     return (
       <div>
         <ThemeProvider theme={theme}>
-          <CategoriesContainer />
+          <CategoriesContainer selected={selected} />
         </ThemeProvider>
         <Container>
           <GridContainer>

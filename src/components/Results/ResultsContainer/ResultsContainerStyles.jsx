@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const Container = styled.div`
   width: 100%;
   border-top: 1px solid #ecf0f1;
-  margin-top: 2rem;
 `;
 
 const GridContainer = styled.div`
