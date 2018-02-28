@@ -11,14 +11,14 @@ const ContainerStyles = css`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: ${(props) => props.color};
+  color: ${props => props.color};
   margin: 0 3rem;
   padding-bottom: 2rem;
-  border-bottom: ${(props) => getBorderBottomFrom({ ...props })};
-  opacity: ${(props) => getOpacityFrom({ ...props })};
+  border-bottom: ${props => getBorderBottomFrom({ ...props })};
+  opacity: ${props => getOpacityFrom({ ...props })};
 
   &:hover {
-    opacity: ${(props) => getHoverOpacityFrom({ ...props })};
+    opacity: ${props => getHoverOpacityFrom({ ...props })};
     cursor: pointer;
   }
 `;
