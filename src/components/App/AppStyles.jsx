@@ -4,6 +4,7 @@ const AppStyles = injectGlobal`
   html { /* gets rid of "jump" when scrollbar appears */
     margin-left: calc(100vw - 100%);
     margin-right: 0;
+    overflow-y: scroll;
   }
 
   body {

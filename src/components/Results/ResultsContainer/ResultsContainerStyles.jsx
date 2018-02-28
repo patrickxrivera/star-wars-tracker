@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
+export const Container = styled.div`
   width: 100%;
   border-top: 1px solid #ecf0f1;
 `;
 
-const GridContainer = styled.div`
+export const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 0.1rem 0.5rem;
@@ -15,8 +15,6 @@ const GridContainer = styled.div`
   width: 850px;
 `;
 
-const theme = {
+export const theme = {
   main: '1.7rem'
 };
-
-export { Container, GridContainer, theme };
