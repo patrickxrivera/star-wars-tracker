@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+
+import { fadeIn } from '../../../../styles/animations.js';
 import { getBgColorFrom } from '../helpers/resultCardStylesHelpers';
 
 const Container = styled.div`
@@ -10,6 +12,8 @@ const Container = styled.div`
   justify-self: center;
   margin-top: 4rem;
   background: #fff;
+  opacity: 0;
+  animation: 1200ms ${fadeIn} 300ms forwards;
 `;
 
 const HeaderBackground = styled.div`

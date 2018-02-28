@@ -5,7 +5,9 @@ const Container = styled.div`
   display: flex;
   flex: 1;
   justify-content: center;
-  margin-top: ${(props) => props.theme.main};
+  margin-top: ${props => props.theme.marginTop};
+  animation: ${props => props.theme.animation};
+  opacity: ${props => props.theme.opacity};
 `;
 
 const StyledLink = styled(Link)`
@@ -22,7 +24,9 @@ const StyledLink = styled(Link)`
 
 Container.defaultProps = {
   theme: {
-    main: '4.25rem'
+    marginTop: '4.25rem',
+    animation: 'none',
+    opacity: '1'
   }
 };
 

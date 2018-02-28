@@ -5,7 +5,7 @@ import api from '../../../utils/api/api';
 import NavBar from '../../Nav/NavBar/NavBar.jsx';
 import getTargetCard from '../ResultCards/helpers/resultCardHelpers';
 import CategoriesContainer from '../../Categories/CategoriesContainer/CategoriesContainer.jsx';
-import { Container, GridContainer, theme } from './ResultsContainerStyles.jsx';
+import { Container, GridContainer, resultsPage } from './ResultsContainerStyles.jsx';
 
 class ResultsContainer extends Component {
   constructor(props) {
@@ -44,7 +44,7 @@ class ResultsContainer extends Component {
     return (
       <div>
         <NavBar selected={selected} />
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={resultsPage}>
           <CategoriesContainer selected={selected} />
         </ThemeProvider>
         <Container>
