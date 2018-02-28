@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Heart } from 'react-feather';
+import { getBgColorFrom } from '../../Results/ResultCards/helpers/resultCardStylesHelpers';
 
 const Btn = styled.button`
   display: flex;
@@ -8,9 +9,8 @@ const Btn = styled.button`
   z-index: 100;
   width: 145px;
   height: 44px;
-  background: #3e70ff;
+  background: ${props => getBgColorFrom({ ...props }) || '#3e70ff'};
   border: none;
-  box-shadow: rgba(23, 43, 99, 0.26) 0 7px 42px;
   color: #fff;
   border-radius: 5px;
   letter-spacing: 0.5px;
@@ -30,7 +30,7 @@ const Btn = styled.button`
 const SmallHeart = styled(Heart)`
   width: 13px;
   height: 13px;
-  padding: 0 4px;
+  padding: 0 4.5px;
   stroke-width: 3;
 `;
 

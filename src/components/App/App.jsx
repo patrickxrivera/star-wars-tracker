@@ -9,7 +9,6 @@ import ResultsContainer from '../Results/ResultsContainer/ResultsContainer.jsx';
 const App = () => (
   <Router>
     <div>
-      <NavBar />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/results" component={ResultsContainer} />

@@ -1,10 +1,11 @@
 import React from 'react';
 
 import { Btn, SmallHeart } from './NavFavoriteBtnStyles.jsx';
+// import { targetColor } from '../../Results/ResultCards/helpers/resultCardStylesHelpers';
 
-const NavFavoriteBtn = () => (
-  <Btn>
-    See Favorites <SmallHeart /> (0)
+const NavFavoriteBtn = ({ selected }) => (
+  <Btn selected={selected}>
+    See Favorites<SmallHeart /> (0)
   </Btn>
 );
 

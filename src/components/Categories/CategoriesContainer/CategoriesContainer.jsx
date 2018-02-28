@@ -7,6 +7,8 @@ import { Container, StyledLink } from './CategoriesContainerStyles.jsx';
 const CategoriesContainer = ({ selected }) => (
   <Container>
     {Object.values(iconData).map(({ categoryName, color, Icon }) => {
+      const props = { selected, categoryName, color, Icon };
+
       return (
         <StyledLink
           to={{
@@ -15,7 +17,7 @@ const CategoriesContainer = ({ selected }) => (
           }}
           key={categoryName}
         >
-          <Category selected={selected} categoryName={categoryName} color={color} Icon={Icon} />
+          <Category {...props} />
         </StyledLink>
       );
     })}

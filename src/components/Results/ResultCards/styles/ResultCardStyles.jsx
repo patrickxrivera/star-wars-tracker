@@ -14,7 +14,7 @@ const Container = styled.div`
 
 const HeaderBackground = styled.div`
   width: 100%;
-  background-color: ${(props) => getBgColorFrom({ ...props })};
+  background-color: ${props => getBgColorFrom({ ...props })};
   border-radius: 4px 4px 0 0;
 `;
 

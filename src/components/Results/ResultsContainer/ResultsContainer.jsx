@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import api from '../../../utils/api/api';
+import NavBar from '../../Nav/NavBar/NavBar.jsx';
 import getTargetCard from '../ResultCards/helpers/resultCardHelpers';
 import CategoriesContainer from '../../Categories/CategoriesContainer/CategoriesContainer.jsx';
 import { Container, GridContainer, theme } from './ResultsContainerStyles.jsx';
@@ -42,13 +43,14 @@ class ResultsContainer extends Component {
 
     return (
       <div>
+        <NavBar selected={selected} />
         <ThemeProvider theme={theme}>
           <CategoriesContainer selected={selected} />
         </ThemeProvider>
         <Container>
           <GridContainer>
             {results &&
-              Object.values(results).map((data) => {
+              Object.values(results).map(data => {
                 return <TargetCard key={data.Name} selected={selected} data={data} />;
               })}
           </GridContainer>
