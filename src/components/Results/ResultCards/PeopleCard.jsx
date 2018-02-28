@@ -10,9 +10,9 @@ import {
   ItemTitle
 } from './styles/ResultCardStyles.jsx';
 
-const PeopleCard = (props) => {
+const PeopleCard = props => {
+  const { selected } = props;
   const { Name, Species, Homeworld, Language, Population } = props.data;
-  const selected = props.selected;
 
   return (
     <Container>

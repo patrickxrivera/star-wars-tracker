@@ -10,9 +10,9 @@ import {
   ItemTitle
 } from './styles/ResultCardStyles.jsx';
 
-const PlanetCard = (props) => {
+const PlanetCard = props => {
+  const { selected } = props;
   const { Name, Terrain, Population, Climate } = props.data;
-  const selected = props.selected;
 
   return (
     <Container>

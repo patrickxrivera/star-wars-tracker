@@ -10,9 +10,9 @@ import {
   ItemTitle
 } from './styles/ResultCardStyles.jsx';
 
-const VehicleCard = (props) => {
+const VehicleCard = props => {
+  const { selected } = props;
   const { Name, Model, Class, Passengers } = props.data;
-  const selected = props.selected;
 
   return (
     <Container>
