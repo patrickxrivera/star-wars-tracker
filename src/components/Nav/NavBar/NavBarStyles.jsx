@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { media } from '../../../styles/sizes.js';
-import { fadeIn } from '../../../styles/animations.js';
 import { getAnimationFrom } from './helpers/navBarStylesHelpers.js';
 
 const Banner = styled.div`

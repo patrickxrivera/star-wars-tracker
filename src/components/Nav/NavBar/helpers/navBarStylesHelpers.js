@@ -1,4 +1,4 @@
-import { fadeIn, fadeInUp } from '../../../../styles/animations.js';
+import { fadeIn } from '../../../../styles/animations.js';
 
 export const getAnimationFrom = ({ selected }) => {
   return selected
