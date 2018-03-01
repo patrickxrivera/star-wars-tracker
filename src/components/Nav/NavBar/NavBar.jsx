@@ -4,11 +4,11 @@ import { Banner, Container } from './NavBarStyles.jsx';
 import Title from '../Title/Title.jsx';
 import NavFavoriteBtn from '../NavFavoriteBtn/NavFavoriteBtn.jsx';
 
-const NavBar = ({ selected }) => (
-  <Banner selected={selected}>
+const NavBar = props => (
+  <Banner selected={props.selected}>
     <Container>
       <Title />
-      <NavFavoriteBtn selected={selected} />
+      <NavFavoriteBtn {...props} />
     </Container>
   </Banner>
 );

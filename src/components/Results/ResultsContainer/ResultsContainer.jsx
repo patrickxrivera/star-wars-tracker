@@ -5,13 +5,18 @@ import { string } from 'prop-types';
 import api from '../../../utils/api/api';
 import NavBar from '../../Nav/NavBar/NavBar.jsx';
 import CategoriesContainer from '../../Categories/CategoriesContainer/CategoriesContainer.jsx';
+import ResultCard from '../ResultCard/ResultCard.jsx';
+import Loading from '../Loading/Loading.jsx';
+import {
+  getNumOf,
+  getLocalStorageFor,
+  setLocalStorageFor
+} from './helpers/resultsContainerHelpers';
 import {
   Container,
   GridContainer,
   resultsPage
 } from './ResultsContainerStyles.jsx';
-import ResultCard from '../ResultCard/ResultCard.jsx';
-import Loading from '../Loading/Loading.jsx';
 
 class ResultsContainer extends Component {
   constructor(props) {
@@ -22,10 +27,12 @@ class ResultsContainer extends Component {
       results: null,
       initialLoad: true,
       loadOnClick: true,
-      favorites: []
+      favorites: [],
+      numOfFavorites: null
     };
 
     [
+      'getNumOfFavorites',
       'resetloadOnClick',
       'handleInitialClick',
       'isNewProp',
@@ -39,6 +46,10 @@ class ResultsContainer extends Component {
     });
   }
 
+  componentWillMount() {
+    this.getNumOfFavorites();
+  }
+
   componentWillReceiveProps(nextProps) {
     this.resetloadOnClick(this.state.loadOnClick);
     this.handleInitialClick(this.props, nextProps);
@@ -46,6 +57,11 @@ class ResultsContainer extends Component {
 
   componentDidMount() {
     this.updateResults(this.state.selected);
+  }
+
+  getNumOfFavorites() {
+    const numOfFavorites = getNumOf('favorites');
+    this.setState({ numOfFavorites });
   }
 
   resetloadOnClick(loadOnClick) {
@@ -74,13 +90,13 @@ class ResultsContainer extends Component {
   }
 
   async updateResults(selected) {
-    const cachedResults = JSON.parse(localStorage.getItem(selected));
+    const cachedResults = getLocalStorageFor(selected);
 
     if (cachedResults) {
       this.setState({ results: cachedResults });
     } else {
       const results = await api.getDataModelFor(selected);
-      localStorage.setItem(selected, JSON.stringify(results)); // cache the API response to access future requests in constant time
+      setLocalStorageFor(selected, results); // cache the API response to access future requests in constant time
       this.setState({ results });
     }
 
@@ -92,14 +108,15 @@ class ResultsContainer extends Component {
   }
 
   handleFavoriteClick(type, idx) {
-    const selectedList = JSON.parse(localStorage.getItem(type));
+    const selectedList = getLocalStorageFor(type);
     const clicked = selectedList[idx];
 
-    let cachedFavorites = JSON.parse(localStorage.getItem('favorites'));
+    let cachedFavorites = getLocalStorageFor('favorites');
 
     if (!cachedFavorites) {
-      localStorage.setItem('favorites', JSON.stringify([]));
-      cachedFavorites = JSON.parse(localStorage.getItem('favorites'));
+      const initialValue = [];
+      setLocalStorageFor('favorites', initialValue);
+      cachedFavorites = getLocalStorageFor('favorites');
     }
 
     const removedFavorite = cachedFavorites.some((entry, idx) => {
@@ -114,18 +131,28 @@ class ResultsContainer extends Component {
       cachedFavorites.push(clicked);
     }
 
-    localStorage.setItem('favorites', JSON.stringify(cachedFavorites));
-    this.setState({ favorites: cachedFavorites });
+    setLocalStorageFor('favorites', cachedFavorites);
+    this.setState({
+      favorites: cachedFavorites,
+      numOfFavorites: cachedFavorites.length
+    });
   }
 
   render() {
-    const { selected, results, initialLoad, loadOnClick } = this.state;
+    const {
+      selected,
+      results,
+      initialLoad,
+      loadOnClick,
+      numOfFavorites
+    } = this.state;
+    const navProps = { selected, numOfFavorites };
 
     if (initialLoad) return <Loading />;
 
     return (
       <div>
-        <NavBar selected={selected} />
+        <NavBar {...navProps} />
         <ThemeProvider theme={resultsPage}>
           <CategoriesContainer selected={selected} />
         </ThemeProvider>
