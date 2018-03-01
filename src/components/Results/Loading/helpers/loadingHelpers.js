@@ -1,4 +1,4 @@
-import colorMapping from '../../ResultCards/helpers/resultCardData';
+import colorMapping from '../../ResultCard/helpers/resultCardData';
 
 const getColorFrom = selected => {
   const defaultPrettyColor = '#0984e3';

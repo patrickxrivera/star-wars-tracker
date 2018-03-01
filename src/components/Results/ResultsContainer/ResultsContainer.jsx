@@ -10,7 +10,7 @@ import {
   GridContainer,
   resultsPage
 } from './ResultsContainerStyles.jsx';
-import ResultCard from '../ResultCards/ResultCard.jsx';
+import ResultCard from '../ResultCard/ResultCard.jsx';
 import Loading from '../Loading/Loading.jsx';
 
 class ResultsContainer extends Component {

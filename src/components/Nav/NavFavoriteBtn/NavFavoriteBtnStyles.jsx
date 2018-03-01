@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Heart } from 'react-feather';
-import { getBgColorFrom } from '../../Results/ResultCards/helpers/resultCardStylesHelpers';
+import { getBgColorFrom } from '../../Results/ResultCard/helpers/resultCardStylesHelpers';
 
 const Btn = styled.button`
   display: flex;
