@@ -1,19 +1,19 @@
 import axios from 'axios';
 
-import formatPopulation from './helpers/dataModelHelpers';
+import { formatPopulation, addConstantsTo } from './helpers/dataModelHelpers';
 import { count } from '../api/apiData';
 
 let dataModel = {};
 
-const createPeopleDataModelFrom = async (results) => {
+const createPeopleDataModelFrom = async results => {
   const shortenedList = results.slice(0, count);
 
   const homeworldData = await _getDataFrom(shortenedList, 'homeworld');
   const speciesData = await _getDataFrom(shortenedList, 'species');
 
-  dataModel = await _addHomeworldDataToDataModel(homeworldData, dataModel);
-  dataModel = await _addSpeciesDataToDataModel(speciesData, dataModel);
-  dataModel = _addNamesToDataModel(shortenedList, dataModel);
+  dataModel = await _addHomeworldData(homeworldData, dataModel);
+  dataModel = await _addSpeciesData(speciesData, dataModel);
+  dataModel = _addSynchronousData(shortenedList, dataModel);
   dataModel = formatPopulation(dataModel);
 
   return dataModel;
@@ -21,28 +21,26 @@ const createPeopleDataModelFrom = async (results) => {
 
 const _getDataFrom = async (list, target) => {
   // TODO figure out how to make concurrent axios requests with axios.all()
-  const endpoints = list.map((person) => axios.get(person[target]));
+  const endpoints = list.map(person => axios.get(person[target]));
   const responses = await axios.all(endpoints);
   return responses;
 };
 
-const _addHomeworldDataToDataModel = async (homeworldData, dataModel) => {
+const _addHomeworldData = async (homeworldData, dataModel) => {
   homeworldData.forEach((response, idx) => {
-    const homeworld = response.data.name;
-    const population = response.data.population;
+    const { name, population } = response.data;
 
     dataModel[idx] = dataModel[idx] || {};
-    dataModel[idx].Homeworld = homeworld;
+    dataModel[idx].Homeworld = name;
     dataModel[idx].Population = population;
   });
 
   return dataModel;
 };
 
-const _addSpeciesDataToDataModel = (speciesData, dataModel) => {
+const _addSpeciesData = (speciesData, dataModel) => {
   speciesData.forEach((response, idx) => {
-    const species = response.data.name;
-    const language = response.data.language;
+    const { species, language } = response.data;
 
     dataModel[idx] = dataModel[idx] || {};
     dataModel[idx].Species = species;
@@ -52,10 +50,13 @@ const _addSpeciesDataToDataModel = (speciesData, dataModel) => {
   return dataModel;
 };
 
-const _addNamesToDataModel = (list, dataModel) => {
+const _addSynchronousData = (list, dataModel) => {
+  const type = 'People';
+
   list.forEach((person, idx) => {
     dataModel[idx] = dataModel[idx] || {};
     dataModel[idx].Name = person.name;
+    dataModel = addConstantsTo(dataModel, type, idx);
   });
   return dataModel;
 };

@@ -1,4 +1,5 @@
 const baseUrl = 'https://swapi.co/api/';
+
 const endpoint = {
   People: `${baseUrl}people/`,
   Planets: `${baseUrl}planets/`,
