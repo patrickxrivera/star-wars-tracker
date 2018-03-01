@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import { media } from '../../../styles/sizes.js';
 import { fadeIn } from '../../../styles/animations.js';
+import { getAnimationFrom } from './helpers/navBarStylesHelpers.js';
 
 const Banner = styled.div`
   border-bottom: 1px solid #ecf0f1;
   padding-bottom: 1rem;
   opacity: 0;
-  animation: 1500ms ${fadeIn} 700ms forwards;
+  animation: ${props => getAnimationFrom({ ...props })};
 `;
 
 const Container = styled.div`

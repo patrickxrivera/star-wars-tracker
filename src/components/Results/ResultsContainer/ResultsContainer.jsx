@@ -20,14 +20,21 @@ class ResultsContainer extends Component {
       selected: this.props.location.state.selected,
       results: null,
       initialLoad: true, // TODO better name for loads
-      clickLoad: true
+      clickLoad: true,
+      People: null,
+      Planets: null,
+      Vehicles: null
     };
 
-    this.resetClickLoad = this.resetClickLoad.bind(this);
-    this.getResults = this.getResults.bind(this); // TODO better name
-    this.isNewProp = this.isNewProp.bind(this);
-    this.updateResults = this.updateResults.bind(this);
-    this.setAnimations = this.setAnimations.bind(this);
+    [
+      'resetClickLoad',
+      'getResults',
+      'updateResults',
+      'isNewProp',
+      'setAnimations'
+    ].forEach(propToBind => {
+      this[propToBind] = this[propToBind].bind(this);
+    });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -57,11 +64,22 @@ class ResultsContainer extends Component {
   }
 
   async updateResults(selected) {
-    const results = await api.getDataModelFor(selected);
-    this.setState({ results }, this.setAnimations({ ...this.state }));
+    if (this.state[selected]) {
+      this.setState(
+        { results: this.state[selected] },
+        this.setAnimations({ ...this.state })
+      );
+    } else {
+      const results = await api.getDataModelFor(selected);
+
+      this.setState(
+        { results, [selected]: results }, // cache the API response to access in constant time in the future
+        this.setAnimations({ ...this.state })
+      );
+    }
   }
 
-  setAnimations({ initialLoad, clickLoad, fadeUp }) {
+  setAnimations({ initialLoad, clickLoad }) {
     this.setState({ initialLoad: false, clickLoad: false });
   }
 

@@ -5,7 +5,7 @@ import Title from '../Title/Title.jsx';
 import NavFavoriteBtn from '../NavFavoriteBtn/NavFavoriteBtn.jsx';
 
 const NavBar = ({ selected }) => (
-  <Banner>
+  <Banner selected={selected}>
     <Container>
       <Title />
       <NavFavoriteBtn selected={selected} />
