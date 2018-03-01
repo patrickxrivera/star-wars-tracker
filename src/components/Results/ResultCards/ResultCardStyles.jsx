@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { getBgColorFrom } from '../helpers/resultCardStylesHelpers';
+import { getBgColorFrom } from './helpers/resultCardStylesHelpers';
 
 const Container = styled.div`
   height: 250px;

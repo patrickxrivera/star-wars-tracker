@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components';
+import { string } from 'prop-types';
 
 import api from '../../../utils/api/api';
 import NavBar from '../../Nav/NavBar/NavBar.jsx';
-import getTargetCard from '../ResultCards/helpers/resultCardHelpers';
 import CategoriesContainer from '../../Categories/CategoriesContainer/CategoriesContainer.jsx';
 import {
   Container,
   GridContainer,
   resultsPage
 } from './ResultsContainerStyles.jsx';
+import ResultCard from '../ResultCards/ResultCard.jsx';
 import Loading from '../Loading/Loading.jsx';
 
 class ResultsContainer extends Component {
@@ -19,18 +20,17 @@ class ResultsContainer extends Component {
     this.state = {
       selected: this.props.location.state.selected,
       results: null,
-      initialLoad: true, // TODO better name for loads
-      clickLoad: true,
-      People: null,
-      Planets: null,
-      Vehicles: null
+      initialLoad: true,
+      loadOnClick: true
     };
 
     [
-      'resetClickLoad',
-      'getResults',
-      'updateResults',
+      'resetloadOnClick',
+      'handleClick',
       'isNewProp',
+      'getResults',
+      'getSelected',
+      'updateResults',
       'setAnimations'
     ].forEach(propToBind => {
       this[propToBind] = this[propToBind].bind(this);
@@ -38,24 +38,23 @@ class ResultsContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.resetClickLoad(this.state.clickLoad);
-    this.getResults(this.props, nextProps);
+    this.resetloadOnClick(this.state.loadOnClick);
+    this.handleClick(this.props, nextProps);
   }
 
   componentDidMount() {
     this.updateResults(this.state.selected);
   }
 
-  resetClickLoad(clickLoad) {
-    this.setState({ clickLoad: true });
+  resetloadOnClick(loadOnClick) {
+    this.setState({ loadOnClick: true }); // reset so load animation is rendered for each click
   }
 
-  getResults(currProps, nextProps) {
+  handleClick(currProps, nextProps) {
     if (this.isNewProp(currProps, nextProps)) {
-      const selected = nextProps.location.state.selected;
-      this.setState({ selected }, () => this.updateResults(selected));
+      this.getResults(nextProps);
     } else {
-      this.setState({ clickLoad: false }); // prevent loading animation if user clicks same category
+      this.setState({ loadOnClick: false }); // prevent load if user clicks same category
     }
   }
 
@@ -63,32 +62,35 @@ class ResultsContainer extends Component {
     return curr.location.state.selected !== next.location.state.selected;
   }
 
-  async updateResults(selected) {
-    if (this.state[selected]) {
-      this.setState(
-        { results: this.state[selected] },
-        this.setAnimations({ ...this.state })
-      );
-    } else {
-      const results = await api.getDataModelFor(selected);
-
-      this.setState(
-        { results, [selected]: results }, // cache the API response to access in constant time in the future
-        this.setAnimations({ ...this.state })
-      );
-    }
+  getResults(nextProps) {
+    const selected = this.getSelected(nextProps);
+    this.setState({ selected }, () => this.updateResults(selected));
   }
 
-  setAnimations({ initialLoad, clickLoad }) {
-    this.setState({ initialLoad: false, clickLoad: false });
+  getSelected(nextProps) {
+    return nextProps.location.state.selected;
+  }
+
+  async updateResults(selected) {
+    const cachedResults = localStorage.getItem(selected);
+
+    if (cachedResults) {
+      this.setState({ results: JSON.parse(cachedResults) });
+    } else {
+      const results = await api.getDataModelFor(selected);
+      localStorage.setItem(selected, JSON.stringify(results)); // cache the API response to access future requests in constant time
+      this.setState({ results });
+    }
+
+    this.setAnimations({ ...this.state });
+  }
+
+  setAnimations({ initialLoad, loadOnClick }) {
+    this.setState({ initialLoad: false, loadOnClick: false });
   }
 
   render() {
-    const selected = this.state.selected;
-    const results = this.state.results;
-    const initialLoad = this.state.initialLoad;
-    const clickLoad = this.state.clickLoad;
-    const TargetCard = getTargetCard(selected);
+    const { selected, results, initialLoad, loadOnClick } = this.state;
 
     if (initialLoad) return <Loading />;
 
@@ -99,13 +101,13 @@ class ResultsContainer extends Component {
           <CategoriesContainer selected={selected} />
         </ThemeProvider>
         <Container>
-          {clickLoad && <Loading selected={selected} />}
-          {!clickLoad && (
+          {loadOnClick && <Loading selected={selected} />}
+          {!loadOnClick && (
             <GridContainer>
               {results &&
                 Object.values(results).map(data => {
                   return (
-                    <TargetCard
+                    <ResultCard
                       key={data.Name}
                       data={data}
                       selected={selected}
@@ -119,5 +121,9 @@ class ResultsContainer extends Component {
     );
   }
 }
+
+ResultsContainer.propTypes = {
+  selected: string.isRequired
+};
 
 export default ResultsContainer;
