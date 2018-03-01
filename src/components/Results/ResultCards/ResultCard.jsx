@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, shape } from 'prop-types';
+import { func, string, shape } from 'prop-types';
 
 import {
   Container,
@@ -11,12 +11,12 @@ import {
   ItemTitle
 } from './ResultCardStyles.jsx';
 
-const ResultCard = ({ selected, data }) => {
-  const { Name, Favorited, Type, ...rest } = data;
+const ResultCard = ({ handleClick, data, idx }) => {
+  const { Name, Type, ...rest } = data;
 
   return (
     <Container>
-      <HeaderBackground selected={selected}>
+      <HeaderBackground onClick={() => handleClick(Type, idx)} type={Type}>
         <HeaderContainer>
           <Header>{Name}</Header>
         </HeaderContainer>
@@ -35,7 +35,7 @@ const ResultCard = ({ selected, data }) => {
 };
 
 ResultCard.propTypes = {
-  selected: string.isRequired,
+  handleClick: func.isRequired,
   data: shape({
     // All
     Name: string.isRequired,

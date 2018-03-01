@@ -21,17 +21,19 @@ class ResultsContainer extends Component {
       selected: this.props.location.state.selected,
       results: null,
       initialLoad: true,
-      loadOnClick: true
+      loadOnClick: true,
+      favorites: []
     };
 
     [
       'resetloadOnClick',
-      'handleClick',
+      'handleInitialClick',
       'isNewProp',
       'getResults',
       'getSelected',
       'updateResults',
-      'setAnimations'
+      'setAnimations',
+      'handleFavoriteClick'
     ].forEach(propToBind => {
       this[propToBind] = this[propToBind].bind(this);
     });
@@ -39,7 +41,7 @@ class ResultsContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.resetloadOnClick(this.state.loadOnClick);
-    this.handleClick(this.props, nextProps);
+    this.handleInitialClick(this.props, nextProps);
   }
 
   componentDidMount() {
@@ -50,7 +52,7 @@ class ResultsContainer extends Component {
     this.setState({ loadOnClick: true }); // reset so load animation is rendered for each click
   }
 
-  handleClick(currProps, nextProps) {
+  handleInitialClick(currProps, nextProps) {
     if (this.isNewProp(currProps, nextProps)) {
       this.getResults(nextProps);
     } else {
@@ -72,10 +74,10 @@ class ResultsContainer extends Component {
   }
 
   async updateResults(selected) {
-    const cachedResults = localStorage.getItem(selected);
+    const cachedResults = JSON.parse(localStorage.getItem(selected));
 
     if (cachedResults) {
-      this.setState({ results: JSON.parse(cachedResults) });
+      this.setState({ results: cachedResults });
     } else {
       const results = await api.getDataModelFor(selected);
       localStorage.setItem(selected, JSON.stringify(results)); // cache the API response to access future requests in constant time
@@ -87,6 +89,33 @@ class ResultsContainer extends Component {
 
   setAnimations({ initialLoad, loadOnClick }) {
     this.setState({ initialLoad: false, loadOnClick: false });
+  }
+
+  handleFavoriteClick(type, idx) {
+    const selectedList = JSON.parse(localStorage.getItem(type));
+    const clicked = selectedList[idx];
+
+    let cachedFavorites = JSON.parse(localStorage.getItem('favorites'));
+
+    if (!cachedFavorites) {
+      localStorage.setItem('favorites', JSON.stringify([]));
+      cachedFavorites = JSON.parse(localStorage.getItem('favorites'));
+    }
+
+    const removedFavorite = cachedFavorites.some((entry, idx) => {
+      if (entry.Name === clicked.Name) {
+        const removeThisMany = 1;
+        cachedFavorites.splice(idx, removeThisMany);
+        return true;
+      }
+    });
+
+    if (!removedFavorite) {
+      cachedFavorites.push(clicked);
+    }
+
+    localStorage.setItem('favorites', JSON.stringify(cachedFavorites));
+    this.setState({ favorites: cachedFavorites });
   }
 
   render() {
@@ -105,12 +134,13 @@ class ResultsContainer extends Component {
           {!loadOnClick && (
             <GridContainer>
               {results &&
-                Object.values(results).map(data => {
+                Object.values(results).map((data, idx) => {
                   return (
                     <ResultCard
                       key={data.Name}
                       data={data}
-                      selected={selected}
+                      idx={idx}
+                      handleClick={this.handleFavoriteClick}
                     />
                   );
                 })}

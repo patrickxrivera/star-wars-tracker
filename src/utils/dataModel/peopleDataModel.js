@@ -40,10 +40,10 @@ const _addHomeworldData = async (homeworldData, dataModel) => {
 
 const _addSpeciesData = (speciesData, dataModel) => {
   speciesData.forEach((response, idx) => {
-    const { species, language } = response.data;
+    const { name, language } = response.data;
 
     dataModel[idx] = dataModel[idx] || {};
-    dataModel[idx].Species = species;
+    dataModel[idx].Species = name;
     dataModel[idx].Language = language;
   });
 

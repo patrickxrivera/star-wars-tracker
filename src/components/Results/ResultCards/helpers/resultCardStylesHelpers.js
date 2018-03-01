@@ -1,6 +1,6 @@
 import colorMapping from './resultCardData';
 
-export const getBgColorFrom = ({ selected }) => {
-  const targetColor = colorMapping[selected];
+export const getBgColorFrom = ({ type }) => {
+  const targetColor = colorMapping[type];
   return targetColor;
 };
