@@ -99,7 +99,7 @@ class ResultsContainer extends Component {
           <CategoriesContainer selected={selected} />
         </ThemeProvider>
         <Container>
-          {clickLoad && <Loading />}
+          {clickLoad && <Loading selected={selected} />}
           {!clickLoad && (
             <GridContainer>
               {results &&
