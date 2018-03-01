@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import { getAnimationFrom } from './helpers/resultsContainerHelpers';
 import { fadeIn, fadeInUp } from '../../../styles/animations.js';
 
 export const Container = styled.div`

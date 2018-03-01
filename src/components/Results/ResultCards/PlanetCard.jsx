@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, shape } from 'prop-types';
 
 import {
   Container,
@@ -34,6 +35,16 @@ const PlanetCard = props => {
       </List>
     </Container>
   );
+};
+
+PlanetCard.propTypes = {
+  selected: string,
+  data: shape({
+    Name: string,
+    Terrain: string,
+    Population: string,
+    Climate: string
+  })
 };
 
 export default PlanetCard;

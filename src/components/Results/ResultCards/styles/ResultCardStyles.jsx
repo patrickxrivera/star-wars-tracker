@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import { fadeIn, fadeInUp } from '../../../../styles/animations.js';
 import { getBgColorFrom } from '../helpers/resultCardStylesHelpers';
 
 const Container = styled.div`

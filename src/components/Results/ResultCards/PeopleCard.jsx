@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, shape } from 'prop-types';
 
 import {
   Container,
@@ -37,6 +38,17 @@ const PeopleCard = props => {
       </List>
     </Container>
   );
+};
+
+PeopleCard.propTypes = {
+  selected: string,
+  data: shape({
+    Name: string,
+    Species: string,
+    Homeworld: string,
+    Language: string,
+    Population: string
+  })
 };
 
 export default PeopleCard;

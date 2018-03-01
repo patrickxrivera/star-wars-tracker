@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, shape } from 'prop-types';
 
 import {
   Container,
@@ -16,7 +17,7 @@ const VehicleCard = props => {
 
   return (
     <Container>
-      <HeaderBackground selected={props.selected}>
+      <HeaderBackground selected={selected}>
         <HeaderContainer>
           <Header>{Name}</Header>
         </HeaderContainer>
@@ -34,6 +35,16 @@ const VehicleCard = props => {
       </List>
     </Container>
   );
+};
+
+VehicleCard.propTypes = {
+  selected: string,
+  data: shape({
+    Name: string,
+    Model: string,
+    Class: string,
+    Passengers: string
+  })
 };
 
 export default VehicleCard;

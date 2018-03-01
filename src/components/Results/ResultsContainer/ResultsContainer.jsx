@@ -67,11 +67,9 @@ class ResultsContainer extends Component {
 
   render() {
     const selected = this.state.selected;
-    const handleInitialLoad = this.handleInitialLoad;
     const results = this.state.results;
     const initialLoad = this.state.initialLoad;
     const clickLoad = this.state.clickLoad;
-    const fadeUp = this.state.fadeUp;
     const TargetCard = getTargetCard(selected);
 
     if (initialLoad) return <Loading />;
