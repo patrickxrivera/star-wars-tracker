@@ -12,7 +12,7 @@ import {
 } from './ResultCardStyles.jsx';
 
 const ResultCard = ({ selected, data }) => {
-  const { Name, ...rest } = data;
+  const { Name, Favorited, Type, ...rest } = data;
 
   return (
     <Container>

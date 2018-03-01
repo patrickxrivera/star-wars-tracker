@@ -123,7 +123,7 @@ class ResultsContainer extends Component {
 }
 
 ResultsContainer.propTypes = {
-  selected: string.isRequired
+  selected: string
 };
 
 export default ResultsContainer;
