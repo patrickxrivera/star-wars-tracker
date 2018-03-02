@@ -1,5 +1,10 @@
 import { fadeIn, fadeInUp } from '../../../../styles/animations.js';
 
+export const isNewProp = (curr, next) =>
+  curr.location.state.selected !== next.location.state.selected;
+
+export const clickedFavorites = selected => selected === 'Favorite';
+
 export const getAnimationFrom = ({ fadeUp }) => {
   return fadeUp
     ? `1100ms ${fadeInUp} 1300ms forwards`
