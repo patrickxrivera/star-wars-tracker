@@ -3,10 +3,12 @@ import { Heart } from 'react-feather';
 import { getBgColorFrom } from '../../Results/ResultCard/helpers/resultCardStylesHelpers';
 
 const Btn = styled.button`
+  position: fixed;
+  transform: translateX(960px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 100;
+  z-index: 10000;
   width: 145px;
   height: 44px;
   background: ${props => getBgColorFrom({ ...props }) || '#3e70ff'};

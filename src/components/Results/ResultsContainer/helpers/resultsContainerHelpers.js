@@ -6,9 +6,9 @@ export const getAnimationFrom = ({ fadeUp }) => {
     : `1200ms ${fadeIn} 600ms forwards`;
 };
 
-export const getNumOf = () => {
-  const allFavorites = JSON.parse(localStorage.getItem('favorites'));
-  return allFavorites.length;
+export const getNumOf = key => {
+  const list = JSON.parse(localStorage.getItem(key));
+  return list ? list.length : 0;
 };
 
 export const getLocalStorageFor = key => JSON.parse(localStorage.getItem(key));

@@ -139,20 +139,13 @@ class ResultsContainer extends Component {
   }
 
   render() {
-    const {
-      selected,
-      results,
-      initialLoad,
-      loadOnClick,
-      numOfFavorites
-    } = this.state;
-    const navProps = { selected, numOfFavorites };
+    const { selected, results, initialLoad, loadOnClick } = this.state;
 
     if (initialLoad) return <Loading />;
 
     return (
       <div>
-        <NavBar {...navProps} />
+        <NavBar selected={selected} />
         <ThemeProvider theme={resultsPage}>
           <CategoriesContainer selected={selected} />
         </ThemeProvider>

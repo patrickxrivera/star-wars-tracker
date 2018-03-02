@@ -9,7 +9,9 @@ const Home = () => (
     <NavBar />
     <Container>
       <Title>Select a category</Title>
-      <Subscript>Detailed information on your favorite Star Wars characters.</Subscript>
+      <Subscript>
+        Detailed information on your favorite Star Wars characters.
+      </Subscript>
       <CategoriesContainer />
     </Container>
   </div>
