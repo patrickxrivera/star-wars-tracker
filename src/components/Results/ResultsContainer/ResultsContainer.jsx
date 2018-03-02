@@ -60,7 +60,7 @@ class ResultsContainer extends Component {
   }
 
   getNumOfFavorites() {
-    const numOfFavorites = getNumOf('favorites');
+    const numOfFavorites = getNumOf('Favorites');
     this.setState({ numOfFavorites });
   }
 
@@ -70,7 +70,7 @@ class ResultsContainer extends Component {
 
   handleInitialClick(currProps, nextProps) {
     if (this.isNewProp(currProps, nextProps)) {
-      if (nextProps.location.state.selected === 'favorites') {
+      if (nextProps.location.state.selected === 'Favorites') {
         this.setState({ results: nextProps.location.state.cachedResults });
       }
       this.getResults(nextProps);
@@ -110,18 +110,25 @@ class ResultsContainer extends Component {
     this.setState({ initialLoad: false, loadOnClick: false });
   }
 
-  handleFavoriteClick(type, idx) {
+  handleFavoriteClick(type, targetName) {
     const selectedList = getLocalStorageFor(type);
-    const clicked = selectedList[idx];
+    let clicked;
+
+    Object.values(selectedList).some(({ Name }, idx) => {
+      if (Name === targetName) {
+        clicked = selectedList[idx];
+      }
+    });
+
     clicked.Favorited = !clicked.Favorited;
     setLocalStorageFor(type, selectedList);
 
-    let cachedFavorites = getLocalStorageFor('favorites');
+    let cachedFavorites = getLocalStorageFor('Favorites');
 
     if (!cachedFavorites) {
       const initialValue = [];
-      setLocalStorageFor('favorites', initialValue);
-      cachedFavorites = getLocalStorageFor('favorites');
+      setLocalStorageFor('Favorites', initialValue);
+      cachedFavorites = getLocalStorageFor('Favorites');
     }
 
     const removedFavorite = cachedFavorites.some((entry, idx) => {
@@ -136,11 +143,13 @@ class ResultsContainer extends Component {
       cachedFavorites.push(clicked);
     }
 
-    setLocalStorageFor('favorites', cachedFavorites);
+    setLocalStorageFor('Favorites', cachedFavorites);
+    const newResults = getLocalStorageFor(this.state.selected);
+
     this.setState({
       favorites: cachedFavorites,
       numOfFavorites: cachedFavorites.length,
-      results: getLocalStorageFor(type)
+      results: newResults
     });
   }
 

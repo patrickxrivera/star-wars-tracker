@@ -5,8 +5,6 @@ import { Heart } from 'react-feather';
 import { getBgColorFrom } from '../../Results/ResultCard/helpers/resultCardStylesHelpers';
 
 export const Btn = styled.button`
-  position: fixed;
-  transform: translateX(960px);
   z-index: 1;
   width: 145px;
   height: 44px;

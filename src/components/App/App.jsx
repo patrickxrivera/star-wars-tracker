@@ -10,7 +10,10 @@ const App = () => (
     <div>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/results" component={ResultsContainer} />
+        <Route path="/results/people" component={ResultsContainer} />
+        <Route path="/results/planets" component={ResultsContainer} />
+        <Route path="/results/vehicles" component={ResultsContainer} />
+        <Route path="/results/favorites" component={ResultsContainer} />
       </Switch>
     </div>
   </Router>

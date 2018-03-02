@@ -12,7 +12,7 @@ import {
   ItemTitle
 } from './ResultCardStyles.jsx';
 
-const ResultCard = ({ handleClick, data, idx }) => {
+const ResultCard = ({ handleClick, data }) => {
   const { Name, Type, Favorited, ...rest } = data;
 
   return (
@@ -23,7 +23,7 @@ const ResultCard = ({ handleClick, data, idx }) => {
           <BigHeart
             favorited={Favorited}
             size={23}
-            onClick={() => handleClick(Type, idx)}
+            onClick={() => handleClick(Type, Name)}
           />
         </HeaderContainer>
       </HeaderBackground>

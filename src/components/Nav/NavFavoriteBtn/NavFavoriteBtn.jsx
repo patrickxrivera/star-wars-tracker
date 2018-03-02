@@ -8,15 +8,15 @@ import {
 import { StyledLink } from './NavFavoriteBtnStyles.jsx';
 
 const NavFavoriteBtn = ({ selected }) => {
-  const numOfFavorites = getNumOf('favorites');
-  const cachedResults = getLocalStorageFor(selected);
+  const numOfFavorites = getNumOf('Favorites');
+  const cachedResults = getLocalStorageFor('Favorites');
 
   return (
     <Btn type={selected}>
       <StyledLink
         to={{
-          pathname: '/results',
-          state: { cachedResults, selected: 'favorites' }
+          pathname: '/results/favorites',
+          state: { cachedResults, selected: 'Favorites' }
         }}
       >
         See Favorites <SmallHeart /> ({numOfFavorites})
