@@ -6,19 +6,25 @@ import {
   HeaderContainer,
   HeaderBackground,
   Header,
+  BigHeart,
   List,
   ListItem,
   ItemTitle
 } from './ResultCardStyles.jsx';
 
 const ResultCard = ({ handleClick, data, idx }) => {
-  const { Name, Type, ...rest } = data;
+  const { Name, Type, Favorited, ...rest } = data;
 
   return (
     <Container>
-      <HeaderBackground onClick={() => handleClick(Type, idx)} type={Type}>
+      <HeaderBackground type={Type}>
         <HeaderContainer>
           <Header>{Name}</Header>
+          <BigHeart
+            favorited={Favorited}
+            size={23}
+            onClick={() => handleClick(Type, idx)}
+          />
         </HeaderContainer>
       </HeaderBackground>
       <List>

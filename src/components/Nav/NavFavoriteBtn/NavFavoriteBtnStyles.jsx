@@ -1,14 +1,13 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
 import { Heart } from 'react-feather';
 import { getBgColorFrom } from '../../Results/ResultCard/helpers/resultCardStylesHelpers';
 
-const Btn = styled.button`
+export const Btn = styled.button`
   position: fixed;
   transform: translateX(960px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
+  z-index: 1;
   width: 145px;
   height: 44px;
   background: ${props => getBgColorFrom({ ...props }) || '#3e70ff'};
@@ -29,11 +28,26 @@ const Btn = styled.button`
   }
 `;
 
-const SmallHeart = styled(Heart)`
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+`;
+
+export const SmallHeart = styled(Heart)`
   width: 13px;
   height: 13px;
   padding: 0 4.5px;
   stroke-width: 3;
 `;
-
-export { Btn, SmallHeart };

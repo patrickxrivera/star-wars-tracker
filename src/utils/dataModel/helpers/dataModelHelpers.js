@@ -10,6 +10,7 @@ const formatPopulation = dataModel => {
 };
 
 const addConstantsTo = (dataModel, type, idx) => {
+  dataModel[idx].Favorited = false;
   dataModel[idx].Type = type;
   return dataModel;
 };

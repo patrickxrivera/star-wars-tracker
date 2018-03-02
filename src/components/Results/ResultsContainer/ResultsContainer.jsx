@@ -70,6 +70,9 @@ class ResultsContainer extends Component {
 
   handleInitialClick(currProps, nextProps) {
     if (this.isNewProp(currProps, nextProps)) {
+      if (nextProps.location.state.selected === 'favorites') {
+        this.setState({ results: nextProps.location.state.cachedResults });
+      }
       this.getResults(nextProps);
     } else {
       this.setState({ loadOnClick: false }); // prevent load if user clicks same category
@@ -110,6 +113,8 @@ class ResultsContainer extends Component {
   handleFavoriteClick(type, idx) {
     const selectedList = getLocalStorageFor(type);
     const clicked = selectedList[idx];
+    clicked.Favorited = !clicked.Favorited;
+    setLocalStorageFor(type, selectedList);
 
     let cachedFavorites = getLocalStorageFor('favorites');
 
@@ -134,7 +139,8 @@ class ResultsContainer extends Component {
     setLocalStorageFor('favorites', cachedFavorites);
     this.setState({
       favorites: cachedFavorites,
-      numOfFavorites: cachedFavorites.length
+      numOfFavorites: cachedFavorites.length,
+      results: getLocalStorageFor(type)
     });
   }
 
