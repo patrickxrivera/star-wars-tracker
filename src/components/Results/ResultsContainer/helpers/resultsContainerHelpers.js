@@ -66,7 +66,7 @@ export const updateCachedFavorites = clicked => {
 };
 
 export const shouldRenderFavoritesMsg = selected =>
-  _favoritesIsEmpty() && _favoritesIsSelected();
+  _favoritesIsEmpty() && _favoritesIsSelected(selected);
 
 const _favoritesIsEmpty = () => getNumOf('Favorites') === 0;
 
