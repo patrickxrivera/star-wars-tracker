@@ -6,7 +6,12 @@ Check it out: https://star-wars-tracker.herokuapp.com/
 
 ![App-Gif](https://s3.us-east-2.amazonaws.com/fcc-weather-app/star-wars-tracker/ster-werz.gif)
 
-# MVP List
+## Purpose
+
+* Practice building modular React components 
+* Learn how to handle nested asynchronous requests using Axios and Async/Await
+
+## MVP List
 
 - [X] Display people, planets, and vehicle data from the Star Wars API
 - [X] Persist favorites using the browser's Local Storage API
@@ -14,15 +19,10 @@ Check it out: https://star-wars-tracker.herokuapp.com/
 - [X] Mobile responsive
 - [X] Subtle hover and transition animations on clicks 
 
-# V2
+## V2
 
 - [ ] Add route that displays the rolling screen at the beginning of every Star Wars movie
 - [ ] Add tranlation to "Shwookie", the official Wookie language, because... that's important these days
-
-## Purpose
-
-* Practice building out modular React components 
-* Learn how to handle nested asynchronous requests using axios and async/await (*spoiler:* it's challenging but rewarding!)
 
 ## Technologies
 
@@ -32,7 +32,7 @@ Check it out: https://star-wars-tracker.herokuapp.com/
 * Styled Components
 
 ## Wireframes and Components
-*Note: Routes and component names are subject to change during the development process
+*Note: Routes and component names are subject to change during the development process*
 
 - Home
   - Components:
