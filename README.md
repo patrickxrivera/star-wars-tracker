@@ -1,4 +1,10 @@
-Star Wars Tracker allows you to see and save information for your favorite people, planets, and vehicles in the Star Wars series.
+# Star Wars Tracker
+**Detailed information on your favorite people, planets, and vehicles from the Star Wars series.**
+
+Check it out: https://star-wars-tracker.herokuapp.com/
+
+
+![App-Gif](https://s3.us-east-2.amazonaws.com/fcc-weather-app/star-wars-tracker/ster-werz.gif)
 
 # MVP List
 
@@ -12,3 +18,46 @@ Star Wars Tracker allows you to see and save information for your favorite peopl
 
 - [ ] Add route that displays the rolling screen at the beginning of every Star Wars movie
 - [ ] Add tranlation to "Shwookie", the official Wookie language, cuz... y'know that's important
+
+## Purpose
+
+* Practice building out modular React components 
+* Learn how to handle nested asynchronous requests using axios and async/await (*spoiler:* it's challenging but rewarding!)
+
+## Technologies
+
+* React 
+* Star Wars API (SWApi)
+* CSS3 (Animations, Flexbox, Media Queries, etc.)
+* Styled Components
+
+## Wireframes and Components
+- Home
+  - Components:
+    - `OptionsContainer` + `Option`
+      - Route: `/`
+
+![Home](https://s3.us-east-2.amazonaws.com/fcc-weather-app/star-wars-tracker/Capture2222.JPG)
+
+## Results
+###
+- ResultsContainer
+  - Routes:
+    - `/people`
+    - `/places`
+    - `/vehicles`
+  - Components
+    - `ResultsContainer`      
+      - State:
+        - People: `name`, `homeworld`, `species`, `language`, `homeworldPopulation`
+        - Planets: `name`, `terrain`, `population`, `climate`, `residents`
+        - Vehicles: `name`, `model`, `class`, `numOfPassengers`
+
+![ResultsContainer](https://s3.us-east-2.amazonaws.com/fcc-weather-app/star-wars-tracker/Capture2.JPG)
+
+- ResultsCard
+  - Components
+    - `ResultCard` + `ResultData` + `ResultHeading` + `ResultFavoriteBtn`      
+      - State: `favorited`
+
+![ResultsContainer](https://s3.us-east-2.amazonaws.com/fcc-weather-app/star-wars-tracker/helloJPG.JPG)
