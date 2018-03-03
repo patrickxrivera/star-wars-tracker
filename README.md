@@ -9,7 +9,7 @@ Check it out: https://star-wars-tracker.herokuapp.com/
 # MVP List
 
 - [X] Display people, planets, and vehicle data from the Star Wars API
-- [X] Persist favorites using local storage
+- [X] Persist favorites using the browser's Local Storage API
 - [X] Separate routes for people, planets, vehicles, and favorites
 - [X] Mobile responsive
 - [X] Subtle hover and transition animations on clicks 
