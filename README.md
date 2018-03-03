@@ -17,7 +17,7 @@ Check it out: https://star-wars-tracker.herokuapp.com/
 # V2
 
 - [ ] Add route that displays the rolling screen at the beginning of every Star Wars movie
-- [ ] Add tranlation to "Shwookie", the official Wookie language, cuz... y'know that's important
+- [ ] Add tranlation to "Shwookie", the official Wookie language, because... that's important these days
 
 ## Purpose
 
