@@ -40,10 +40,9 @@ class ResultsContainer extends Component {
     };
 
     [
-      'resetloadAnimation',
+      'resetLoadAnimation',
       'handleInitialClick',
-      'determineResults',
-      'getResults',
+      'getSelectedType',
       'updateResults',
       'initAnimations',
       'handleFavoriteClick'
@@ -53,7 +52,7 @@ class ResultsContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.resetloadAnimation(this.state.loadOnClick);
+    this.resetLoadAnimation(this.state.loadOnClick);
     this.handleInitialClick(this.props, nextProps);
   }
 
@@ -61,30 +60,21 @@ class ResultsContainer extends Component {
     this.updateResults(this.state.selected);
   }
 
-  resetloadAnimation(loadOnClick) {
+  resetLoadAnimation(loadOnClick) {
     this.setState({ loadOnClick: true });
   }
 
   handleInitialClick(...args) {
     if (isNewProp(...args)) {
-      this.determineResults(...args);
+      this.getSelectedType(...args);
     } else {
       this.setState({ loadOnClick: false });
     }
   }
 
-  determineResults(...args) {
+  getSelectedType(...args) {
     const [currProps, nextProps] = args;
     const { selected, cachedResults } = nextProps.location.state;
-
-    if (userClickedFavorites(selected)) {
-      this.setState({ results: cachedResults });
-    } else {
-      this.getResults(selected);
-    }
-  }
-
-  getResults(selected) {
     this.setState({ selected }, () => this.updateResults(selected));
   }
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { fadeInUp } from '../../../styles/animations.js';
 
 export const Container = styled.div`
-  margin: 5rem auto 0;
+  margin: 7rem auto 0;
   display: flex;
   justify-content: center;
   opacity: 0;
