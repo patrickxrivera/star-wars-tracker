@@ -2,8 +2,13 @@ Star Wars Tracker allows you to see and save information for your favorite peopl
 
 # MVP List
 
-- [ ] Display People, Planets, and Vehicle Data
-- [ ] Persist Favorites Using Local Storage
-- [ ] Separate Routes for People, Planets, Vehicles, and Favorites
-- [ ] Mobile Responsive
-- [ ] Subtle hover and transition animations on clicks 
+- [X] Display people, planets, and vehicle data from the Star Wars API
+- [X] Persist favorites using local storage
+- [X] Separate routes for people, planets, vehicles, and favorites
+- [X] Mobile responsive
+- [X] Subtle hover and transition animations on clicks 
+
+# V2
+
+- [ ] Add route that displays the rolling screen at the beginning of every Star Wars movie
+- [ ] Add tranlation to "Shwookie", the official Wookie language, cuz... y'know that's important
