@@ -128,7 +128,6 @@ class ResultsContainer extends Component {
     } = this.state;
 
     const renderFavoritesMsg = shouldRenderFavoritesMsg(selected);
-    console.log(renderFavoritesMsg);
 
     if (initialLoad) return <Loading />;
 
