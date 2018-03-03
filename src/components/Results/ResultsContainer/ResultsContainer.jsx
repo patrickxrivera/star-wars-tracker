@@ -7,13 +7,16 @@ import NavBar from '../../Nav/NavBar/NavBar.jsx';
 import CategoriesContainer from '../../Categories/CategoriesContainer/CategoriesContainer.jsx';
 import ResultCard from '../ResultCard/ResultCard.jsx';
 import Loading from '../Loading/Loading.jsx';
-// import NoFavorites from '../NoFavorites/NoFavorites.jsx';
+import NoFavorites from '../NoFavorites/NoFavorites.jsx';
 import {
   isNewProp,
-  clickedFavorites,
+  userClickedFavorites,
   getNumOf,
   getLocalStorageFor,
-  setLocalStorageFor
+  setLocalStorageFor,
+  toggleClickedItem,
+  updateCachedFavorites,
+  shouldRenderFavoritesMsg
 } from './helpers/resultsContainerHelpers';
 import {
   Container,
@@ -25,8 +28,10 @@ class ResultsContainer extends Component {
   constructor(props) {
     super(props);
 
+    const { selected } = this.props.location.state;
+
     this.state = {
-      selected: this.props.location.state.selected,
+      selected: selected,
       results: null,
       initialLoad: true,
       loadOnClick: true,
@@ -35,7 +40,7 @@ class ResultsContainer extends Component {
     };
 
     [
-      'resetloadOnClick',
+      'resetloadAnimation',
       'handleInitialClick',
       'determineResults',
       'getResults',
@@ -48,7 +53,7 @@ class ResultsContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.resetloadOnClick(this.state.loadOnClick);
+    this.resetloadAnimation(this.state.loadOnClick);
     this.handleInitialClick(this.props, nextProps);
   }
 
@@ -56,22 +61,23 @@ class ResultsContainer extends Component {
     this.updateResults(this.state.selected);
   }
 
-  resetloadOnClick(loadOnClick) {
-    this.setState({ loadOnClick: true }); // reset so load animation is rendered for each click
+  resetloadAnimation(loadOnClick) {
+    this.setState({ loadOnClick: true });
   }
 
-  handleInitialClick(currProps, nextProps) {
-    if (isNewProp(currProps, nextProps)) {
-      this.determineResults(nextProps);
+  handleInitialClick(...args) {
+    if (isNewProp(...args)) {
+      this.determineResults(...args);
     } else {
-      this.setState({ loadOnClick: false }); // prevent load if user clicks same category
+      this.setState({ loadOnClick: false });
     }
   }
 
-  determineResults(nextProps) {
+  determineResults(...args) {
+    const [currProps, nextProps] = args;
     const { selected, cachedResults } = nextProps.location.state;
 
-    if (clickedFavorites(selected)) {
+    if (userClickedFavorites(selected)) {
       this.setState({ results: cachedResults });
     } else {
       this.getResults(selected);
@@ -89,7 +95,7 @@ class ResultsContainer extends Component {
       this.setState({ results: cachedResults });
     } else {
       const results = await api.getDataModelFor(selected);
-      setLocalStorageFor(selected, results); // cache the API response to access future requests in constant time
+      setLocalStorageFor(selected, results);
       this.setState({ results });
     }
 
@@ -100,40 +106,9 @@ class ResultsContainer extends Component {
     this.setState({ initialLoad: false, loadOnClick: false });
   }
 
-  handleFavoriteClick(type, targetName) {
-    const selectedList = getLocalStorageFor(type);
-    let clicked;
-
-    Object.values(selectedList).some(({ Name }, idx) => {
-      if (Name === targetName) {
-        clicked = selectedList[idx];
-      }
-    });
-
-    clicked.Favorited = !clicked.Favorited;
-    setLocalStorageFor(type, selectedList);
-
-    let cachedFavorites = getLocalStorageFor('Favorites');
-
-    if (!cachedFavorites) {
-      const initialValue = [];
-      setLocalStorageFor('Favorites', initialValue);
-      cachedFavorites = getLocalStorageFor('Favorites');
-    }
-
-    const removedFavorite = cachedFavorites.some((entry, idx) => {
-      if (entry.Name === clicked.Name) {
-        const removeThisMany = 1;
-        cachedFavorites.splice(idx, removeThisMany);
-        return true;
-      }
-    });
-
-    if (!removedFavorite) {
-      cachedFavorites.push(clicked);
-    }
-
-    setLocalStorageFor('Favorites', cachedFavorites);
+  handleFavoriteClick(...args) {
+    const clickedItem = toggleClickedItem(...args);
+    const cachedFavorites = updateCachedFavorites(clickedItem);
     const newResults = getLocalStorageFor(this.state.selected);
 
     this.setState({
@@ -152,7 +127,7 @@ class ResultsContainer extends Component {
       loadOnClick
     } = this.state;
 
-    const noFavorites = getLocalStorageFor('Favorites') === null;
+    const renderFavoritesMsg = shouldRenderFavoritesMsg(selected);
 
     if (initialLoad) return <Loading />;
 
@@ -164,6 +139,7 @@ class ResultsContainer extends Component {
         </ThemeProvider>
         <Container>
           {loadOnClick && <Loading selected={selected} />}
+          {renderFavoritesMsg && <NoFavorites />}
           {!loadOnClick && (
             <GridContainer>
               {results &&
