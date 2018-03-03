@@ -32,6 +32,8 @@ Check it out: https://star-wars-tracker.herokuapp.com/
 * Styled Components
 
 ## Wireframes and Components
+*Note: Routes and component names are subject to change during the development process
+
 - Home
   - Components:
     - `OptionsContainer` + `Option`
