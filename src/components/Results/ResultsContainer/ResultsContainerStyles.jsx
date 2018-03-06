@@ -22,8 +22,8 @@ export const GridContainer = styled.div`
   ${media.large`grid-template-columns: repeat(3, 1fr)`};
   ${media.large`width: 850px`};
 
-  ${media.small`grid-template-columns: repeat(2, 1fr)`};
-  ${media.small`width: 570px`};
+  ${media.small`grid-template-columns: repeat(1, 1fr)`};
+  ${media.small`width: 450px`};
 `;
 
 export const resultsPage = {
